@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy5msg1w0oxmm"]
+
+[ext_resource type="Script" uid="uid://db61jm0m4pad8" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://5ro30o31t8ei" path="res://icon.svg" id="1_ig7tw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
+radius = 65.00769
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(763, 20)
+
+[node name="Main" type="Node2D"]
+
+[node name="player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_0xm2m")
+
+[node name="Icon" type="Sprite2D" parent="player"]
+texture = ExtResource("1_ig7tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position_smoothing_enabled = true
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(-0.5, 128)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Icon" type="Sprite2D" parent="ground"]
+position = Vector2(-3, 127.5)
+scale = Vector2(6.015625, 0.17968743)
+texture = ExtResource("1_ig7tw")

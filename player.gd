@@ -1,10 +1,13 @@
 extends CharacterBody2D
-
+class_name Player
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var coyoteTimer=0.0
-var coyoteTime=0.5
+var coyoteTime=0.3
+
+var concealed=false
+var canMove=true
 
 var lightColliding=[]
 
@@ -16,25 +19,29 @@ func _physics_process(delta: float) -> void:
 	else:
 		coyoteTimer=0
 
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyoteTimer<coyoteTime):
-		velocity.y = JUMP_VELOCITY
+	if(canMove):
+		# Handle jump.
+		if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyoteTimer<coyoteTime):
+			velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("Left", "Right")
-	if direction:
-		velocity.x = direction * SPEED
+		var direction := Input.get_axis("Left", "Right")
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+		if(Input.is_action_pressed("Sprint")):
+			velocity.x*=1.5
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		velocity.x=move_toward(velocity.x, 0, delta*10000)
+	
 	move_and_slide()
 	lightVisibility()
 
 func lightVisibility():
 	for item in lightColliding:
-		$RayCast2D.set_deferred("target_position", to_local(item.global_position))
-		await get_tree().process_frame
+		$RayCast2D.target_position = to_local(item.global_position)
+		$RayCast2D.force_raycast_update()
 		if($RayCast2D.is_colliding()):
 			item.visible=false
 		else:

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -500.0
+const SPEED = 150.0
+const JUMP_VELOCITY = -300.0
 var coyoteTimer=0.0
 var coyoteTime=0.3
 

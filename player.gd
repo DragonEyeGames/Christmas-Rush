@@ -11,6 +11,8 @@ var canMove=true
 
 var lightColliding=[]
 
+func _ready() -> void:
+	GameManager.player=self
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

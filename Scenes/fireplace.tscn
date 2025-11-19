@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://enwn4qao47bj"]
+
+[ext_resource type="Script" uid="uid://m6m2y4qbb8rs" path="res://Scripts/fireplace.gd" id="1_0dsgr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3f88f"]
+radius = 44.0
+height = 166.0
+
+[node name="Fireplace" type="Node2D"]
+script = ExtResource("1_0dsgr")
+
+[node name="Outline" type="ColorRect" parent="."]
+visible = false
+offset_left = -34.0
+offset_top = -91.0
+offset_right = 34.0
+offset_bottom = 47.0
+
+[node name="Bricks" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -91.0
+offset_right = 32.0
+offset_bottom = 47.0
+color = Color(0.61960787, 0.15686275, 0.06666667, 1)
+
+[node name="Bricks2" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -32.0
+offset_top = -91.0
+offset_right = 32.0
+offset_bottom = -33.0
+color = Color(0.61960787, 0.15686275, 0.06666667, 1)
+
+[node name="Hole" type="ColorRect" parent="."]
+offset_left = -28.0
+offset_top = -33.0
+offset_right = 28.0
+offset_bottom = 35.0
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -24)
+shape = SubResource("CapsuleShape2D_3f88f")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

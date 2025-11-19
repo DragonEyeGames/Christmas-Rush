@@ -13,11 +13,11 @@ config_version=5
 config/name="Christmas Rush"
 run/main_scene="uid://dy5msg1w0oxmm"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [autoload]
 
-GameManager="*res://GameManager.gd"
+GameManager="*res://Scripts/GameManager.gd"
 
 [display]
 
@@ -29,6 +29,17 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Fonts/": "orange",
+"res://Scenes/": "yellow",
+"res://Scripts/": "green",
+"res://Shaders/": "teal",
+"res://addons/": "gray"
+}
 
 [input]
 

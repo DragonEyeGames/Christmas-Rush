@@ -1,0 +1,32 @@
+extends CanvasLayer
+
+var level:Level
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	GameManager.overlay=self
+
+
+func gameOver():
+	level=GameManager.levelNode
+	visible=true
+	$Controller.play("appear")
+	$Stars/Star/MinScore.text=str(level.minScore)
+	$Stars/Star2/MinScore.text=str(level.medScore)
+	$Stars/Star3/MinScore.text=str(level.maxScore)
+	$Time.text="Time: " + str(round(level.runtime*100)/100)
+	$Detections.text="Detections: " + str(level.encounters)
+	var time:float =(round(level.runtime*100)/100)
+	var score:=0
+	var timeBonus=(((time-level.parTime)/(level.minTime-level.parTime)))
+	score+=int((1.0-timeBonus)*level.timeMultiplier)
+	$Score.text="Score: " + str(score)
+	await get_tree().create_timer(.8).timeout
+	if(score>=level.minScore):
+		$Stars/Star/Show.play("show")
+	await get_tree().create_timer(.4).timeout
+	if(score>=level.medScore):
+		$Stars/Star2/Show.play("show")
+	await get_tree().create_timer(.4).timeout
+	if(score>=level.maxScore):
+		$Stars/Star3/Show.play("show")
+	

@@ -57,20 +57,17 @@ func _process(delta: float) -> void:
 				sprite.play("walk")
 			if(patrolDirection<0):
 				if(leftPos < global_position.x):
-					print("LEFt")
 					position.x-=speed*delta*speedDifference
 					sprite.flip_h=true
 				else:
 					patrolDirection*=-1
 			else:
 				if(rightPos > global_position.x):
-					print("RIGHt")
 					position.x+=speed*delta*speedDifference
 					sprite.flip_h=false
 				else:
 					patrolDirection*=-1
 			if visible and (abs(global_position.distance_to(GameManager.player.global_position)) <=400*scaleDifference and GameManager.player.concealed==false) and ((GameManager.player.global_position.x<global_position.x and patrolDirection<0) or (GameManager.player.global_position.x>global_position.x and patrolDirection>0)):
-				print("CHASING")
 				GameManager.levelNode.encounters+=1
 				currentState=state.CHASING
 		state.CHASING:

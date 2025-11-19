@@ -261,6 +261,54 @@ tracks/13/keys = {
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(0.385, 0.385)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Restart:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Restart:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(467.00003, 1314), Vector2(584, 966)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Menu:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Menu:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1297, 1339), Vector2(1003, 971)]
+}
 
 [sub_resource type="Animation" id="Animation_0if5p"]
 resource_name = "RESET"
@@ -433,6 +481,54 @@ tracks/13/keys = {
 "update": 0,
 "values": [Vector2(1e-05, 1e-05)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Restart:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Restart:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(467.00003, 1314)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Menu:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Menu:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1297, 1339)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvihi"]
 _data = {
@@ -442,6 +538,8 @@ _data = {
 
 [node name="Overlay" type="CanvasLayer"]
 process_mode = 3
+offset = Vector2(0, -100)
+transform = Transform2D(1, 0, 0, 1, 0, -100)
 script = ExtResource("1_512xe")
 
 [node name="Level Beat" type="RichTextLabel" parent="."]
@@ -499,6 +597,7 @@ speed_scale = 0.5
 
 [node name="Star2" type="Sprite2D" parent="Stars"]
 self_modulate = Color(0.13725491, 0.13725491, 0, 1)
+position = Vector2(966.00006, 467.00003)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("3_wvihi")
 
@@ -556,7 +655,7 @@ speed_scale = 0.5
 [node name="Time" type="RichTextLabel" parent="."]
 offset_left = 1984.0
 offset_top = 605.0
-offset_right = 2476.0107
+offset_right = 2476.0127
 offset_bottom = 740.0
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/normal_font = ExtResource("4_mh5fl")
@@ -578,8 +677,8 @@ vertical_alignment = 1
 [node name="Score" type="RichTextLabel" parent="."]
 offset_left = 744.0
 offset_top = 1152.0
-offset_right = 1235.991
-offset_bottom = 1286.9915
+offset_right = 1235.9883
+offset_bottom = 1286.9897
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/normal_font = ExtResource("4_mh5fl")
 theme_override_font_sizes/normal_font_size = 84
@@ -590,3 +689,25 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_wvihi")
 }
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 467.00003
+offset_top = 1314.0
+offset_right = 795.99976
+offset_bottom = 1439.9999
+scale = Vector2(1e-05, 1e-05)
+theme_override_fonts/font = ExtResource("2_0if5p")
+theme_override_font_sizes/font_size = 57
+text = "Restart"
+
+[node name="Menu" type="Button" parent="."]
+offset_left = 1297.0
+offset_top = 1339.0
+offset_right = 1626.0
+offset_bottom = 1465.0002
+scale = Vector2(1e-05, 1e-05)
+theme_override_fonts/font = ExtResource("2_0if5p")
+theme_override_font_sizes/font_size = 57
+text = "Menu"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

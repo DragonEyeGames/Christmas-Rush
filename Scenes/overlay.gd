@@ -18,7 +18,9 @@ func gameOver():
 	var time:float =(round(level.runtime*100)/100)
 	var score:=0
 	var timeBonus=(((time-level.parTime)/(level.minTime-level.parTime)))
+	var detectionSubtraction=min(0, level.encounters-1)*100
 	score+=int((1.0-timeBonus)*level.timeMultiplier)
+	score-=detectionSubtraction
 	$Score.text="Score: " + str(score)
 	await get_tree().create_timer(.8).timeout
 	if(score>=level.minScore):
@@ -30,3 +32,9 @@ func gameOver():
 	if(score>=level.maxScore):
 		$Stars/Star3/Show.play("show")
 	
+
+
+func _on_restart_pressed() -> void:
+	GameManager.placed=false
+	get_tree().paused=false
+	get_tree().change_scene_to_file("res://Scenes/Levels/Level1.tscn")

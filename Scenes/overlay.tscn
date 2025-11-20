@@ -549,7 +549,7 @@ anchor_bottom = 1.0
 offset_left = -8.0
 offset_top = -274.0
 offset_right = -8.0
-offset_bottom = -1056.0
+offset_bottom = -1056.0002
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
@@ -655,7 +655,7 @@ speed_scale = 0.5
 [node name="Time" type="RichTextLabel" parent="."]
 offset_left = 1984.0
 offset_top = 605.0
-offset_right = 2476.0127
+offset_right = 2476.0144
 offset_bottom = 740.0
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/normal_font = ExtResource("4_mh5fl")
@@ -677,8 +677,8 @@ vertical_alignment = 1
 [node name="Score" type="RichTextLabel" parent="."]
 offset_left = 744.0
 offset_top = 1152.0
-offset_right = 1235.9883
-offset_bottom = 1286.9897
+offset_right = 1235.9872
+offset_bottom = 1286.9899
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/normal_font = ExtResource("4_mh5fl")
 theme_override_font_sizes/normal_font_size = 84
@@ -693,7 +693,7 @@ libraries = {
 [node name="Restart" type="Button" parent="."]
 offset_left = 467.00003
 offset_top = 1314.0
-offset_right = 795.99976
+offset_right = 795.9994
 offset_bottom = 1439.9999
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/font = ExtResource("2_0if5p")
@@ -704,10 +704,11 @@ text = "Restart"
 offset_left = 1297.0
 offset_top = 1339.0
 offset_right = 1626.0
-offset_bottom = 1465.0002
+offset_bottom = 1465.0001
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/font = ExtResource("2_0if5p")
 theme_override_font_sizes/font_size = 57
 text = "Menu"
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

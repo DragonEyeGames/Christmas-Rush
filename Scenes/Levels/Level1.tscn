@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://enwn4qao47bj" path="res://Scenes/fireplace.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://bubtqw6r8hr8o" path="res://Scenes/overlay.tscn" id="9_hptm8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_458el"]
 texture = ExtResource("5_lquwl")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -154,7 +154,7 @@ texture_region_size = Vector2i(8, 8)
 5:2/0 = 0
 5:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_272bh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ok1eh"]
 texture = ExtResource("4_lquwl")
 texture_region_size = Vector2i(8, 8)
 0:1/0 = 0
@@ -271,8 +271,8 @@ texture_region_size = Vector2i(8, 8)
 [sub_resource type="TileSet" id="TileSet_272bh"]
 tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_7mycd")
-sources/1 = SubResource("TileSetAtlasSource_272bh")
+sources/0 = SubResource("TileSetAtlasSource_458el")
+sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ynf5e")
@@ -283,18 +283,6 @@ z_index = 1
 position = Vector2(-202.00002, 12)
 scale = Vector2(0.345, 0.345)
 collision_layer = 2
-
-[node name="Node2D" type="Node2D" parent="player"]
-position = Vector2(-5.797061, -133.33333)
-
-[node name="Camera2D2" type="Camera2D" parent="player/Node2D"]
-scale = Vector2(1.0000001, 1.0000001)
-zoom = Vector2(6.04, 6.04)
-limit_left = -352
-limit_top = -63
-limit_right = 576
-limit_bottom = 119
-position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

@@ -13,6 +13,8 @@ var lightColliding=[]
 
 func _ready() -> void:
 	GameManager.player=self
+	GameManager.camera=$Node2D/Camera2D2
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

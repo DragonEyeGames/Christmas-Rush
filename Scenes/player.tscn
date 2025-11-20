@@ -42,5 +42,18 @@ shape = SubResource("CircleShape2D_2hs0m")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(1, 1)
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-5.797061, -133.33333)
+
+[node name="Camera2D2" type="Camera2D" parent="Node2D"]
+scale = Vector2(1.0000001, 1.0000001)
+zoom = Vector2(4.805, 4.805)
+limit_enabled = false
+limit_left = -352
+limit_top = -63
+limit_right = 576
+limit_bottom = 119
+position_smoothing_enabled = true
+
 [connection signal="area_entered" from="PointLight2D/Area2D" to="." method="_light_entered"]
 [connection signal="area_exited" from="PointLight2D/Area2D" to="." method="_light_exited"]

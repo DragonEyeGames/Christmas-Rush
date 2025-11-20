@@ -22,15 +22,22 @@ func gameOver():
 	score+=int((1.0-timeBonus)*level.timeMultiplier)
 	score-=detectionSubtraction
 	$Score.text="Score: " + str(score)
+	var visibleStars:=0
 	await get_tree().create_timer(.8).timeout
 	if(score>=level.minScore):
+		visibleStars+=1
 		$Stars/Star/Show.play("show")
 	await get_tree().create_timer(.4).timeout
 	if(score>=level.medScore):
+		visibleStars+=1
 		$Stars/Star2/Show.play("show")
 	await get_tree().create_timer(.4).timeout
 	if(score>=level.maxScore):
+		visibleStars+=1
 		$Stars/Star3/Show.play("show")
+	if(visibleStars>GameManager.stars[GameManager.level]):
+		GameManager.stars[GameManager.level]=visibleStars
+		
 	
 
 
@@ -38,3 +45,9 @@ func _on_restart_pressed() -> void:
 	GameManager.placed=false
 	get_tree().paused=false
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level1.tscn")
+
+
+func _on_menu_pressed() -> void:
+	GameManager.placed=false
+	get_tree().paused=false
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

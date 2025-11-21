@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://it4kqys3qgrj"]
 
-[ext_resource type="Script" uid="uid://dyi1m8goi0atx" path="res://Scenes/Levels/portal.gd" id="1_oi2tk"]
+[ext_resource type="Script" uid="uid://dyi1m8goi0atx" path="res://Scripts/portal.gd" id="1_oi2tk"]
 [ext_resource type="Texture2D" uid="uid://b8gq48cnjbjun" path="res://Assets/House/AssetsSheet_House.png" id="2_dashy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]

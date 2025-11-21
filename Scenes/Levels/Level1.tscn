@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://dy5msg1w0oxmm"]
 
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scenes/Level.gd" id="1_ynf5e"]
+[ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://boa8fqmqappli" path="res://Scenes/dog.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bqsts48tscead" path="res://Scenes/door.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://dd7srtletq2dj" path="res://Assets/House/AssetSheet_Furniture.png" id="4_lquwl"]

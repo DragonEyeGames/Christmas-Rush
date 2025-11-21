@@ -11,7 +11,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if(playerEntered and Input.is_action_just_pressed("Interact")):
+		GameManager.camera.position_smoothing_enabled=false
 		GameManager.player.global_position=linkedPortal.global_position
+		await get_tree().process_frame
+		GameManager.camera.position_smoothing_enabled=true
 		
 
 

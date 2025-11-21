@@ -22,6 +22,8 @@ func gameOver():
 	score+=int((1.0-timeBonus)*level.timeMultiplier)
 	score-=detectionSubtraction
 	$Score.text="Score: " + str(score)
+	if(GameManager.unlockedLevel<GameManager.level+1):
+		GameManager.unlockedLevel=GameManager.level+1
 	var visibleStars:=0
 	await get_tree().create_timer(.8).timeout
 	if(score>=level.minScore):

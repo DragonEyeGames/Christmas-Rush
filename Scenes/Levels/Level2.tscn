@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://bhmebh7i0xeld"]
 
-[ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scenes/Level.gd" id="1_d1swa"]
+[ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_d1swa"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_ipaot"]
 [ext_resource type="PackedScene" uid="uid://boa8fqmqappli" path="res://Scenes/dog.tscn" id="3_ao4h1"]
 [ext_resource type="Texture2D" uid="uid://b8gq48cnjbjun" path="res://Assets/House/AssetsSheet_House.png" id="4_ngp1c"]
@@ -278,7 +278,13 @@ sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_d1swa")
-timeMultiplier = 500.0
+minScore = 250
+medScore = 500
+maxScore = 750
+parTime = 16.0
+minTime = 60.0
+parDetections = 2
+timeMultiplier = 750.0
 
 [node name="player" parent="." instance=ExtResource("2_ipaot")]
 z_index = 1

@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2tj1tspns3j6"]
+
+[ext_resource type="FontFile" uid="uid://cxcnad3xk2ids" path="res://Fonts/Labels.ttf" id="1_rlja6"]
+[ext_resource type="Texture2D" uid="uid://vyk7e4ykrtic" path="res://Assets/Star.png" id="2_obrlj"]
+[ext_resource type="Script" uid="uid://b17edjfc750tb" path="res://Scripts/level_selector.gd" id="2_vqjew"]
+[ext_resource type="Texture2D" uid="uid://2r1xwr354jnh" path="res://Assets/Lock.png" id="4_vqjew"]
+
+[node name="Level1" type="Button"]
+custom_minimum_size = Vector2(200, 210)
+offset_left = 809.0
+offset_top = 597.0
+offset_right = 1009.0
+offset_bottom = 807.0
+scale = Vector2(1.885, 1.885)
+pivot_offset = Vector2(96.5517, 100.79578)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_rlja6")
+theme_override_font_sizes/font_size = 37
+flat = true
+script = ExtResource("2_vqjew")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 88.0
+offset_right = 162.0
+offset_bottom = 158.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_rlja6")
+theme_override_font_sizes/normal_font_size = 41
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Star" type="Sprite2D" parent="."]
+self_modulate = Color(0.13725491, 0.13725491, 0, 1)
+position = Vector2(31, 41)
+rotation = -0.17453292
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_obrlj")
+
+[node name="Filled" type="Sprite2D" parent="Star"]
+visible = false
+texture = ExtResource("2_obrlj")
+
+[node name="Star2" type="Sprite2D" parent="."]
+self_modulate = Color(0.13725491, 0.13725491, 0, 1)
+position = Vector2(86, 32)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_obrlj")
+
+[node name="Filled" type="Sprite2D" parent="Star2"]
+visible = false
+texture = ExtResource("2_obrlj")
+
+[node name="Star3" type="Sprite2D" parent="."]
+self_modulate = Color(0.13725491, 0.13725491, 0, 1)
+position = Vector2(140, 39)
+rotation = 0.17453292
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_obrlj")
+
+[node name="Filled" type="Sprite2D" parent="Star3"]
+visible = false
+texture = ExtResource("2_obrlj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -28.1167
+offset_bottom = -14.774536
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.4862745)
+
+[node name="Lock" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(84.88063, 97.08224)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("4_vqjew")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

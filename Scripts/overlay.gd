@@ -25,6 +25,7 @@ func gameOver():
 	if(GameManager.unlockedLevel<GameManager.level+1):
 		GameManager.unlockedLevel=GameManager.level+1
 	var visibleStars:=0
+	
 	await get_tree().create_timer(.8).timeout
 	if(score>=level.minScore):
 		visibleStars+=1
@@ -39,6 +40,10 @@ func gameOver():
 		$Stars/Star3/Show.play("show")
 	if(visibleStars>GameManager.stars[GameManager.level]):
 		GameManager.stars[GameManager.level]=visibleStars
+	var save = SaveData.new()
+	save.stars=GameManager.stars
+	save.unlockedLevel=GameManager.unlockedLevel
+	save.writeSave()
 		
 	
 

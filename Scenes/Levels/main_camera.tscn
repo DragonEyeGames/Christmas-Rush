@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtaillvemg4s6"]
+
+[ext_resource type="Script" uid="uid://bbyxv78alqt0l" path="res://Scenes/Levels/camera.gd" id="1_8hn2f"]
+
+[node name="MainCamera" type="Camera2D"]
+scale = Vector2(1.0000001, 1.0000001)
+zoom = Vector2(4.805, 4.805)
+limit_enabled = false
+limit_left = -352
+limit_top = -63
+limit_right = 576
+limit_bottom = 119
+position_smoothing_enabled = true
+script = ExtResource("1_8hn2f")

@@ -13,12 +13,12 @@ func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("Interact") and colliding and not closed and not moving):
 		$Controller.play("concealPlayer")
 		var tween = create_tween()
-		tween.tween_property(player, "global_position:x", $Door.global_position.x, 0.5)
+		tween.tween_property(player, "global_position:x", $Door.global_position.x, 0.3)
 		player.canMove=false
 		player.concealed=true
 		closed=true
 		moving=true
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(0.5).timeout
 		moving=false
 	elif(event.is_action_pressed("Interact") and closed and not moving):
 		$Controller.play("revealPlayer")
@@ -38,3 +38,6 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if(body is Player):
 		colliding=false
+		
+func open():
+	$Controller.play("openNPC")

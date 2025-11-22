@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c07ddcaoab0kd"]
+[gd_scene load_steps=15 format=4 uid="uid://c07ddcaoab0kd"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_q5el5"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_t0ble"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bubtqw6r8hr8o" path="res://Scenes/overlay.tscn" id="8_7ithr"]
 [ext_resource type="PackedScene" uid="uid://1vnam3fl3ul2" path="res://Scenes/tree.tscn" id="9_r3ubd"]
 [ext_resource type="PackedScene" uid="uid://bqsts48tscead" path="res://Scenes/door.tscn" id="10_t0ble"]
+[ext_resource type="PackedScene" uid="uid://dtaillvemg4s6" path="res://Scenes/Levels/main_camera.tscn" id="11_nvbyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_458el"]
 texture = ExtResource("4_3i7ro")
@@ -371,3 +372,5 @@ linkedPortal = NodePath("../Portal6")
 [node name="Portal6" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("6_1h71y")]
 position = Vector2(486, 914)
 linkedPortal = NodePath("../Portal5")
+
+[node name="MainCamera" parent="." instance=ExtResource("11_nvbyj")]

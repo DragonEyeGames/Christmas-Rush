@@ -8,8 +8,8 @@ var level:=0
 var levelNode:Level
 var camera:Camera2D
 var stars:=[0, 0, 0, 0 ,0]
-
 var unlockedLevel:=5
+var cameraFollow
 
 
 # Called when the node enters the scene tree for the first time.

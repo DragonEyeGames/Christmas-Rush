@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://drvs2n48i0pgv"]
+[gd_scene load_steps=16 format=4 uid="uid://drvs2n48i0pgv"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_ca5bt"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_7f72b"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://1vnam3fl3ul2" path="res://Scenes/tree.tscn" id="9_as08y"]
 [ext_resource type="PackedScene" uid="uid://b55fmyu7iqutl" path="res://Scenes/upgradedDog.tscn" id="9_bfawm"]
 [ext_resource type="PackedScene" uid="uid://rsco884fdivv" path="res://Scenes/Levels/man.tscn" id="10_ca5bt"]
+[ext_resource type="PackedScene" uid="uid://bqsts48tscead" path="res://Scenes/door.tscn" id="10_pk3hp"]
+[ext_resource type="PackedScene" uid="uid://dtaillvemg4s6" path="res://Scenes/Levels/main_camera.tscn" id="11_7f72b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_458el"]
 texture = ExtResource("4_fsn6e")
@@ -290,7 +292,7 @@ timeMultiplier = 700.0
 
 [node name="player" parent="." instance=ExtResource("2_7f72b")]
 z_index = 1
-position = Vector2(-202.00002, 12)
+position = Vector2(790, 479)
 scale = Vector2(0.345, 0.345)
 collision_layer = 2
 
@@ -344,7 +346,7 @@ position = Vector2(174, 48)
 linkedPortal = NodePath("../Portal3")
 
 [node name="Portal5" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("6_1u1uf")]
-position = Vector2(992, 468)
+position = Vector2(-149, 594)
 linkedPortal = NodePath("../Portal6")
 
 [node name="Portal6" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("6_1u1uf")]
@@ -356,16 +358,26 @@ position = Vector2(1569, 681)
 human = NodePath("../Phillip")
 
 [node name="Left" type="Marker2D" parent="Terrance"]
-position = Vector2(-1745, -472.50003)
+position = Vector2(-277.50012, 29.999908)
 
 [node name="Right" type="Marker2D" parent="Terrance"]
-position = Vector2(152.50003, 27.50007)
+position = Vector2(682.5, 30.00007)
 
-[node name="Phillip" parent="." instance=ExtResource("10_ca5bt")]
+[node name="Phillip" parent="." node_paths=PackedStringArray("door") instance=ExtResource("10_ca5bt")]
+z_index = 4
 position = Vector2(993, 467)
+door = NodePath("../Door2")
 
 [node name="Left" type="Marker2D" parent="Phillip"]
 position = Vector2(-174, 14)
 
 [node name="Right" type="Marker2D" parent="Phillip"]
 position = Vector2(249, 6)
+
+[node name="MainCamera" parent="." instance=ExtResource("11_7f72b")]
+
+[node name="Door" parent="." instance=ExtResource("10_pk3hp")]
+position = Vector2(1661, 656)
+
+[node name="Door2" parent="." instance=ExtResource("10_pk3hp")]
+position = Vector2(994, 465)

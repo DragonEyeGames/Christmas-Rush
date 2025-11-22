@@ -13,7 +13,7 @@ var lightColliding=[]
 
 func _ready() -> void:
 	GameManager.player=self
-	GameManager.camera=$Node2D/Camera2D2
+	GameManager.cameraFollow=$Node2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

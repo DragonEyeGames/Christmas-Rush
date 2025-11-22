@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://b55fmyu7iqutl"]
+[gd_scene load_steps=18 format=3 uid="uid://b55fmyu7iqutl"]
 
 [ext_resource type="Script" uid="uid://ocknkqim3usy" path="res://Scripts/advancedDog.gd" id="1_5vciq"]
 [ext_resource type="Texture2D" uid="uid://b3bm84g2dhm3a" path="res://Assets/DogPack - by megamicrobats/Dog Sprites!/Dog 1 - Beagle/Idle/dog_1_idle.png" id="2_23ull"]
 [ext_resource type="Texture2D" uid="uid://bxs1fthqmnyjv" path="res://Assets/DogPack - by megamicrobats/Dog Sprites!/Dog 1 - Beagle/Sit/dog_1_sit.png" id="3_5vciq"]
 [ext_resource type="Texture2D" uid="uid://cljcymjyb8maq" path="res://Assets/DogPack - by megamicrobats/Dog Sprites!/Dog 1 - Beagle/Walk/dog_1_walk_sheet.png" id="4_jdm1d"]
 [ext_resource type="AudioStream" uid="uid://cd4ft6a15qxvw" path="res://sounds/bark.mp3" id="5_5vciq"]
+[ext_resource type="AudioStream" uid="uid://c3lqmkj06oiwm" path="res://sounds/pant.mp3" id="6_jdm1d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2yge"]
 radius = 67.02985
@@ -120,8 +121,15 @@ scale = Vector2(3.615, 3.615)
 sprite_frames = SubResource("SpriteFrames_skbgf")
 animation = &"idle"
 autoplay = "walk"
-frame_progress = 0.28840542
+frame_progress = 0.42440626
 
 [node name="bark" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_5vciq")
 max_polyphony = 10
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jdm1d")
+volume_db = 10.0
+autoplay = true
+max_distance = 500.0
+parameters/looping = true

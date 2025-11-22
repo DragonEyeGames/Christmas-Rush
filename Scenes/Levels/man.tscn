@@ -115,14 +115,18 @@ frame_progress = 0.64539933
 offset = Vector2(9.6866455, -2.848999)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(8.834427, 9.624084)
+position = Vector2(1.7215118, 10.247977)
 rotation = -1.5707964
 scale = Vector2(0.445, 0.98)
 energy = 0.5
 texture = ExtResource("3_s6u3c")
-offset = Vector2(-0.8447628, 97.10773)
+offset = Vector2(0.55724525, 104.36581)
 
 [node name="Area2D" type="Area2D" parent="PointLight2D"]
+visible = false
+position = Vector2(0.5572518, 4.365804)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PointLight2D/Area2D"]
 polygon = PackedVector2Array(-0.84475327, 0.16895294, -113.204315, 194.0465, 111.51477, 194.0465)
@@ -136,9 +140,12 @@ position = Vector2(1, 13)
 shape = SubResource("CapsuleShape2D_kj4ll")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = -1
 offset_left = -73.0
 offset_top = -55.0
 offset_right = 264.0
 offset_bottom = 169.0
 color = Color(0.3180198, 0.31801978, 0.31801975, 1)
+
+[connection signal="body_entered" from="PointLight2D/Area2D" to="." method="_on_area_2d_body_entered"]

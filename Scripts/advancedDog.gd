@@ -11,7 +11,7 @@ var rightPos:=0.0
 var sprite: AnimatedSprite2D
 var idleTime:=0.0
 var sittingTime:=0.0
-
+var detectionTime:=0.0
 var chasing=false
 
 @export var human:Human
@@ -30,6 +30,7 @@ func _ready() -> void:
 	sprite=$Sprite
 	leftPos=$Left.global_position.x
 	rightPos=$Right.global_position.x
+	visible=false
 
 func _process(delta: float) -> void:
 	if(chasing and GameManager.player.concealed):
@@ -70,10 +71,18 @@ func _process(delta: float) -> void:
 				else:
 					patrolDirection*=-1
 			if visible and (abs(global_position.distance_to(GameManager.player.global_position)) <=400*scaleDifference and GameManager.player.concealed==false) and ((GameManager.player.global_position.x<global_position.x and patrolDirection<0) or (GameManager.player.global_position.x>global_position.x and patrolDirection>0)):
-				GameManager.levelNode.encounters+=1
-				currentState=state.CHASING
-				$bark.play()
-				human.activate()
+				detectionTime+=delta
+				if(detectionTime>0.5):
+					detectionTime=0
+					GameManager.levelNode.encounters+=1
+					currentState=state.CHASING
+					$bark.play()
+					await get_tree().create_timer(.5).timeout
+					GameManager.cameraFollow=human
+					await get_tree().create_timer(.7).timeout
+					human.activate()
+					await get_tree().create_timer(2).timeout
+					GameManager.cameraFollow=GameManager.player
 		state.CHASING:
 			chasing=true
 			if(randi_range(0, 69)==67):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqsts48tscead"]
+[gd_scene load_steps=9 format=3 uid="uid://bqsts48tscead"]
 
 [ext_resource type="Script" uid="uid://7rn1nyd8dlfl" path="res://Scripts/door.gd" id="1_ba8gm"]
 [ext_resource type="Texture2D" uid="uid://b8gq48cnjbjun" path="res://Assets/House/AssetsSheet_House.png" id="2_v6xrn"]
@@ -47,7 +47,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_h2yge"]
 resource_name = "concealPlayer"
-length = 0.6
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,7 +55,7 @@ tracks/0/path = NodePath("Door:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -67,7 +67,7 @@ tracks/1/path = NodePath("Opened:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -79,7 +79,7 @@ tracks/2/path = NodePath("Door:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 2]
@@ -125,10 +125,39 @@ tracks/2/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_p0e35"]
+resource_name = "openNPC"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Opened:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lquwl"]
 _data = {
 &"RESET": SubResource("Animation_1bvp3"),
 &"concealPlayer": SubResource("Animation_h2yge"),
+&"openNPC": SubResource("Animation_p0e35"),
 &"revealPlayer": SubResource("Animation_ba8gm")
 }
 
@@ -142,18 +171,18 @@ script = ExtResource("1_ba8gm")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="Controller" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_lquwl")
-}
-speed_scale = 0.5
-
 [node name="Shell" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0.5, 0.5)
 texture = ExtResource("2_v6xrn")
 region_enabled = true
 region_rect = Rect2(56, 73, 15, 23)
+
+[node name="Controller" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lquwl")
+}
+speed_scale = 0.5
 
 [node name="Door" type="Sprite2D" parent="."]
 texture_filter = 1

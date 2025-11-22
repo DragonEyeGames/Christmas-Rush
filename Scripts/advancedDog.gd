@@ -14,6 +14,8 @@ var sittingTime:=0.0
 
 var chasing=false
 
+@export var human:Human
+
 enum state {
 	IDLE,
 	SITTING,
@@ -70,8 +72,12 @@ func _process(delta: float) -> void:
 			if visible and (abs(global_position.distance_to(GameManager.player.global_position)) <=400*scaleDifference and GameManager.player.concealed==false) and ((GameManager.player.global_position.x<global_position.x and patrolDirection<0) or (GameManager.player.global_position.x>global_position.x and patrolDirection>0)):
 				GameManager.levelNode.encounters+=1
 				currentState=state.CHASING
+				$bark.play()
+				human.activate()
 		state.CHASING:
 			chasing=true
+			if(randi_range(0, 69)==67):
+				$bark.play()
 			if(sprite.animation!="walk"):
 				sprite.play("walk")
 			if(global_position.x-GameManager.player.global_position.x>0):

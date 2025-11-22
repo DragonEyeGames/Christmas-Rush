@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://drvs2n48i0pgv"]
+[gd_scene load_steps=14 format=4 uid="uid://drvs2n48i0pgv"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_ca5bt"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_7f72b"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bubtqw6r8hr8o" path="res://Scenes/overlay.tscn" id="8_sytno"]
 [ext_resource type="PackedScene" uid="uid://1vnam3fl3ul2" path="res://Scenes/tree.tscn" id="9_as08y"]
 [ext_resource type="PackedScene" uid="uid://b55fmyu7iqutl" path="res://Scenes/upgradedDog.tscn" id="9_bfawm"]
+[ext_resource type="PackedScene" uid="uid://rsco884fdivv" path="res://Scenes/Levels/man.tscn" id="10_ca5bt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_458el"]
 texture = ExtResource("4_fsn6e")
@@ -350,11 +351,21 @@ linkedPortal = NodePath("../Portal6")
 position = Vector2(486, 914)
 linkedPortal = NodePath("../Portal5")
 
-[node name="Enemy" parent="." instance=ExtResource("9_bfawm")]
+[node name="Terrance" parent="." node_paths=PackedStringArray("human") instance=ExtResource("9_bfawm")]
 position = Vector2(1569, 681)
+human = NodePath("../Phillip")
 
-[node name="Left" type="Marker2D" parent="Enemy"]
+[node name="Left" type="Marker2D" parent="Terrance"]
 position = Vector2(-1745, -472.50003)
 
-[node name="Right" type="Marker2D" parent="Enemy"]
+[node name="Right" type="Marker2D" parent="Terrance"]
 position = Vector2(152.50003, 27.50007)
+
+[node name="Phillip" parent="." instance=ExtResource("10_ca5bt")]
+position = Vector2(993, 467)
+
+[node name="Left" type="Marker2D" parent="Phillip"]
+position = Vector2(-174, 14)
+
+[node name="Right" type="Marker2D" parent="Phillip"]
+position = Vector2(249, 6)

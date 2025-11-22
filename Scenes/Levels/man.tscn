@@ -1,0 +1,144 @@
+[gd_scene load_steps=18 format=3 uid="uid://rsco884fdivv"]
+
+[ext_resource type="Script" uid="uid://dtcs1yhpokble" path="res://Scenes/Levels/man.gd" id="1_86rae"]
+[ext_resource type="Texture2D" uid="uid://brtxxjb2ouw2f" path="res://Assets/3 Man/Man_idle.png" id="1_kj4ll"]
+[ext_resource type="Texture2D" uid="uid://clrff564p8f6n" path="res://Assets/3 Man/Man_walk.png" id="2_86rae"]
+[ext_resource type="Texture2D" uid="uid://brheqd5s53oor" path="res://Assets/Triangle.png" id="3_s6u3c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7f72b"]
+height = 62.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_613b2"]
+atlas = ExtResource("1_kj4ll")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsn6e"]
+atlas = ExtResource("1_kj4ll")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5kak"]
+atlas = ExtResource("1_kj4ll")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u1uf"]
+atlas = ExtResource("1_kj4ll")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qdnk"]
+atlas = ExtResource("2_86rae")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sytno"]
+atlas = ExtResource("2_86rae")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as08y"]
+atlas = ExtResource("2_86rae")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk3hp"]
+atlas = ExtResource("2_86rae")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bose6"]
+atlas = ExtResource("2_86rae")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53tmp"]
+atlas = ExtResource("2_86rae")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qdnk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_613b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsn6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5kak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u1uf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qdnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sytno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as08y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk3hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bose6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53tmp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kj4ll"]
+radius = 17.0
+height = 72.0
+
+[node name="Man" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_86rae")
+speed = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 14)
+shape = SubResource("CapsuleShape2D_7f72b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.999937, 8.999993)
+scale = Vector2(1.755, 1.755)
+sprite_frames = SubResource("SpriteFrames_8qdnk")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.64539933
+offset = Vector2(9.6866455, -2.848999)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(8.834427, 9.624084)
+rotation = -1.5707964
+scale = Vector2(0.445, 0.98)
+energy = 0.5
+texture = ExtResource("3_s6u3c")
+offset = Vector2(-0.8447628, 97.10773)
+
+[node name="Area2D" type="Area2D" parent="PointLight2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PointLight2D/Area2D"]
+polygon = PackedVector2Array(-0.84475327, 0.16895294, -113.204315, 194.0465, 111.51477, 194.0465)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 13)
+shape = SubResource("CapsuleShape2D_kj4ll")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -73.0
+offset_top = -55.0
+offset_right = 264.0
+offset_bottom = 169.0
+color = Color(0.3180198, 0.31801978, 0.31801975, 1)

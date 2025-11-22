@@ -8,12 +8,13 @@ var coyoteTime=0.3
 
 var concealed=false
 var canMove=true
-
+var sprite
 var lightColliding=[]
 
 func _ready() -> void:
 	GameManager.player=self
 	GameManager.cameraFollow=$Node2D
+	sprite=$sprite
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -39,8 +40,24 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x=move_toward(velocity.x, 0, delta*10000)
 	
+	if(abs(velocity.x)<0.1):
+		velocity.x=0
+	if(abs(velocity.y)<0.1):
+		velocity.y=0
 	move_and_slide()
 	lightVisibility()
+	if(abs(velocity.x)>1 and sprite.animation!="walk"):
+		sprite.play("walk")
+	if(velocity==Vector2.ZERO and sprite.animation!="idle"):
+		sprite.play("idle")
+	if(velocity.y<-1 and sprite.animation!="jumpRise"):
+		sprite.play("jumpRise")
+	if(velocity.y>1 and sprite.animation!="jumpFall"):
+		sprite.play("jumpFall")
+	if(velocity.x<0):
+		sprite.flip_h=true
+	elif(velocity.x>0):
+		sprite.flip_h=false
 
 func lightVisibility():
 	for item in lightColliding:

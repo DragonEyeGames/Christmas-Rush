@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bjiio2vkprxyb" path="res://sounds/Sneaky.mp3" id="2_476t3"]
 
 [node name="Music" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_476t3")
 
 [node name="Menu" type="AudioStreamPlayer2D" parent="."]

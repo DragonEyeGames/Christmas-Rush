@@ -76,6 +76,7 @@ func _process(delta: float) -> void:
 					detectionTime=0
 					GameManager.levelNode.encounters+=1
 					currentState=state.CHASING
+					GameManager.player.canMove=false
 					$bark.play()
 					await get_tree().create_timer(.5).timeout
 					GameManager.cameraFollow=human
@@ -83,6 +84,7 @@ func _process(delta: float) -> void:
 					human.activate()
 					await get_tree().create_timer(2).timeout
 					GameManager.cameraFollow=GameManager.player
+					GameManager.player.canMove=true
 		state.CHASING:
 			chasing=true
 			if(randi_range(0, 69)==67):

@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://rsco884fdivv"]
+[gd_scene load_steps=19 format=3 uid="uid://rsco884fdivv"]
 
 [ext_resource type="Script" uid="uid://dtcs1yhpokble" path="res://Scenes/Levels/man.gd" id="1_86rae"]
 [ext_resource type="Texture2D" uid="uid://brtxxjb2ouw2f" path="res://Assets/3 Man/Man_idle.png" id="1_kj4ll"]
 [ext_resource type="Texture2D" uid="uid://clrff564p8f6n" path="res://Assets/3 Man/Man_walk.png" id="2_86rae"]
 [ext_resource type="Texture2D" uid="uid://brheqd5s53oor" path="res://Assets/Triangle.png" id="3_s6u3c"]
+[ext_resource type="Texture2D" uid="uid://bivsohhfi7obw" path="res://Assets/detected.png" id="5_s6u3c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7f72b"]
 height = 62.0
@@ -123,7 +124,6 @@ texture = ExtResource("3_s6u3c")
 offset = Vector2(0.55724525, 104.36581)
 
 [node name="Area2D" type="Area2D" parent="PointLight2D"]
-visible = false
 position = Vector2(0.5572518, 4.365804)
 collision_layer = 0
 collision_mask = 2
@@ -148,4 +148,11 @@ offset_right = 264.0
 offset_bottom = 169.0
 color = Color(0.3180198, 0.31801978, 0.31801975, 1)
 
+[node name="Detected" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -26)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("5_s6u3c")
+
 [connection signal="body_entered" from="PointLight2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PointLight2D/Area2D" to="." method="_on_area_2d_body_exited"]

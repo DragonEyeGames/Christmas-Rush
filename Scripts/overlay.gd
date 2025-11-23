@@ -51,7 +51,8 @@ func gameOver():
 func _on_restart_pressed() -> void:
 	GameManager.placed=false
 	get_tree().paused=false
-	get_tree().change_scene_to_file("res://Scenes/Levels/Level1.tscn")
+	print(GameManager.level)
+	get_tree().change_scene_to_file("res://Scenes/Levels/Level" + str(GameManager.level+1) + ".tscn")
 
 
 func _on_menu_pressed() -> void:

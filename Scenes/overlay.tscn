@@ -382,6 +382,18 @@ tracks/16/keys = {
 "update": 0,
 "values": [Vector2(1297, 1339)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("ColorRect:color")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_512xe"]
 resource_name = "appear"
@@ -602,6 +614,18 @@ tracks/17/keys = {
 "update": 0,
 "values": [Vector2(1297, 1339), Vector2(1003, 971)]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("ColorRect:color")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.5)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvihi"]
 _data = {
@@ -670,6 +694,7 @@ speed_scale = 0.5
 
 [node name="Star2" type="Sprite2D" parent="Stars"]
 self_modulate = Color(0.13725491, 0.13725491, 0, 1)
+position = Vector2(966.00006, 467.00003)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("3_wvihi")
 
@@ -726,7 +751,7 @@ speed_scale = 0.5
 [node name="Time" type="RichTextLabel" parent="."]
 offset_left = 1984.0
 offset_top = 605.0
-offset_right = 2476.0144
+offset_right = 2476.0146
 offset_bottom = 740.0
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/normal_font = ExtResource("4_mh5fl")
@@ -748,8 +773,8 @@ vertical_alignment = 1
 [node name="Score" type="RichTextLabel" parent="."]
 offset_left = 744.0
 offset_top = 1152.0
-offset_right = 1235.9872
-offset_bottom = 1286.9899
+offset_right = 1235.9868
+offset_bottom = 1286.9895
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/normal_font = ExtResource("4_mh5fl")
 theme_override_font_sizes/normal_font_size = 84
@@ -764,8 +789,8 @@ libraries = {
 [node name="Restart" type="Button" parent="."]
 offset_left = 467.00003
 offset_top = 1314.0
-offset_right = 795.9994
-offset_bottom = 1439.9999
+offset_right = 795.99915
+offset_bottom = 1439.9998
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/font = ExtResource("2_0if5p")
 theme_override_font_sizes/font_size = 57
@@ -775,11 +800,25 @@ text = "Restart"
 offset_left = 1297.0
 offset_top = 1339.0
 offset_right = 1626.0
-offset_bottom = 1465.0001
+offset_bottom = 1465.0002
 scale = Vector2(1e-05, 1e-05)
 theme_override_fonts/font = ExtResource("2_0if5p")
 theme_override_font_sizes/font_size = 57
 text = "Menu"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 80.0
+offset_right = 14.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

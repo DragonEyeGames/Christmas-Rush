@@ -14,6 +14,7 @@ func _process(_delta: float) -> void:
 		GameManager.camera.position_smoothing_enabled=false
 		GameManager.player.global_position=linkedPortal.global_position
 		await get_tree().process_frame
+		await get_tree().process_frame
 		GameManager.camera.position_smoothing_enabled=true
 		
 

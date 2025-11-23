@@ -76,3 +76,10 @@ func _light_exited(area: Area2D) -> void:
 	if(area.get_parent() in lightColliding):
 		lightColliding.erase(area.get_parent())
 		area.get_parent().visible=false
+		
+func reparentCamera():
+	var cameraNode = $Node2D
+	var globalPosition=cameraNode.global_position
+	remove_child(cameraNode)
+	get_parent().add_child(cameraNode)
+	cameraNode.global_position=globalPosition

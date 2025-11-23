@@ -34,7 +34,6 @@ func activate():
 			sprite.play("walk")
 
 func _process(delta: float) -> void:
-	print(collidingTime)
 	if(active):
 		if(colliding):
 			collidingTime+=delta
@@ -102,8 +101,6 @@ func catch(_delta: float):
 	var tween=create_tween()
 	var direction=(GameManager.player.global_position.x - global_position.x)/abs(GameManager.player.global_position.x - global_position.x)
 	var time = abs(GameManager.player.global_position.x - global_position.x)/(speed)
-	print(direction)
-	print(time)
 	speed=0
 	tween.tween_property(self, "global_position:x", GameManager.player.position.x - (direction*50), time)
 	await get_tree().create_timer(time+.5).timeout

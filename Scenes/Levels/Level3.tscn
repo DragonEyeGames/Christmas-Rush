@@ -278,7 +278,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_458el")
 sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("panObject")]
 script = ExtResource("1_i6bqf")
 minScore = 250
 medScore = 500
@@ -287,6 +287,7 @@ parTime = 16.0
 minTime = 60.0
 parDetections = 2
 timeMultiplier = 750.0
+panObject = [NodePath("Tree"), NodePath("Howitzer")]
 
 [node name="player" parent="." instance=ExtResource("2_n80jh")]
 z_index = 1
@@ -306,14 +307,14 @@ color = Color(0.42666334, 0.2697087, 0.13543335, 1)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.29954746, 0.29954746, 0.29954743, 1)
 
-[node name="Jeremy" parent="." instance=ExtResource("3_q21to")]
+[node name="Howitzer" parent="." instance=ExtResource("3_q21to")]
 position = Vector2(276, 921)
 scale = Vector2(0.39, 0.39)
 
-[node name="Left" type="Marker2D" parent="Jeremy"]
+[node name="Left" type="Marker2D" parent="Howitzer"]
 position = Vector2(-643.5898, -7.692308)
 
-[node name="Right" type="Marker2D" parent="Jeremy"]
+[node name="Right" type="Marker2D" parent="Howitzer"]
 position = Vector2(387.17953, 5.1282063)
 
 [node name="Wall" type="TileMapLayer" parent="."]
@@ -339,7 +340,7 @@ tile_set = SubResource("TileSet_272bh")
 [node name="Portal" parent="." node_paths=PackedStringArray("linkedPortal", "dog") instance=ExtResource("6_du1gc")]
 position = Vector2(472, 209)
 linkedPortal = NodePath("../Portal2")
-dog = NodePath("../Jeremy")
+dog = NodePath("../Howitzer")
 direction = 1
 
 [node name="Fireplace" parent="." instance=ExtResource("7_uwisk")]

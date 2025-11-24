@@ -83,7 +83,7 @@ func _process(delta: float) -> void:
 					await get_tree().create_timer(.7).timeout
 					human.activate()
 					await get_tree().create_timer(2).timeout
-					GameManager.cameraFollow=GameManager.player
+					GameManager.cameraFollow=GameManager.playerNode
 					GameManager.player.canMove=true
 		state.CHASING:
 			chasing=true

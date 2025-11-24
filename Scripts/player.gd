@@ -15,6 +15,7 @@ func _ready() -> void:
 	GameManager.player=self
 	GameManager.cameraFollow=$Node2D
 	sprite=$sprite
+	GameManager.playerNode=GameManager.cameraFollow
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

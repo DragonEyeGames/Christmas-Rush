@@ -283,7 +283,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_458el")
 sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("panObject")]
 script = ExtResource("1_rp22a")
 minScore = 250
 medScore = 500
@@ -291,6 +291,7 @@ maxScore = 750
 parTime = 30.0
 minTime = 150.0
 timeMultiplier = 750.0
+panObject = [NodePath("Tree"), NodePath("Terrance")]
 
 [node name="player" parent="." instance=ExtResource("2_cow3m")]
 z_index = 1

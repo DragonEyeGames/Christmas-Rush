@@ -273,11 +273,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_458el")
 sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("panObject")]
 script = ExtResource("1_ir7pk")
 parTime = 9.0
 parDetections = 0
 timeMultiplier = 500.0
+panObject = [NodePath("Tree")]
 
 [node name="player" parent="." instance=ExtResource("2_ilsv2")]
 z_index = 1

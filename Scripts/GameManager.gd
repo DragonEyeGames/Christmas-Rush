@@ -10,6 +10,7 @@ var camera:Camera2D
 var stars:=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 var unlockedLevel:=0
 var cameraFollow
+var playerNode
 
 
 # Called when the node enters the scene tree for the first time.

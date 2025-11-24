@@ -279,7 +279,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_458el")
 sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("panObject")]
 script = ExtResource("1_nkgts")
 minScore = 500
 medScore = 750
@@ -289,6 +289,7 @@ minTime = 150.0
 parDetections = 0
 timeMultiplier = 1000.0
 christmasTrees = 2
+panObject = [NodePath("Tree"), NodePath("Tree2")]
 
 [node name="player" parent="." instance=ExtResource("2_5r6oh")]
 z_index = 1

@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 			$Gifts.visible=true
 			$AnimationPlayer.play("unoutline")
 			placed=true
-			GameManager.placed=true
+			GameManager.placed+=1
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

@@ -8,6 +8,7 @@ class_name Level
 @export var minTime:=45.0
 @export var parDetections:=1
 @export var timeMultiplier:=1.0
+@export var christmasTrees=1
 
 var runtime:=0.0
 var encounters:=0

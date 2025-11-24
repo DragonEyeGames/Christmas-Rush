@@ -9,15 +9,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if(Input.is_action_just_pressed("Interact") and GameManager.placed and collided and not removing):
+	if(Input.is_action_just_pressed("Interact") and GameManager.placed>=get_parent().christmasTrees and collided and not removing):
 		removing=true
 		GameManager.player.canMove=false
 		var tween = create_tween()
 		tween.tween_property(GameManager.player, "global_position:x", global_position.x, 0.5)
 		await get_tree().create_timer(.5).timeout
 		GameManager.player.reparentCamera()
-		await get_tree().process_frame
 		$Bricks2.visible=true
+		await get_tree().process_frame
 		var tween2=create_tween()
 		tween2.tween_property(GameManager.player, "global_position:y", -200, .75)
 		await get_tree().create_timer(.75).timeout
@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 		GameManager.overlay.visible=true
 		get_tree().paused=true
 		GameManager.overlay.gameOver()
-	if($Bricks2.visible and GameManager.player.is_on_floor()):
+	if($Bricks2.visible and GameManager.player.is_on_floor() and not removing):
 		$Bricks2.visible=false
 
 

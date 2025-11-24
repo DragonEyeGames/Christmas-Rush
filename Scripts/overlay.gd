@@ -4,6 +4,8 @@ var level:Level
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.overlay=self
+	if(GameManager.level+1>len(GameManager.stars)-1):
+		$HBoxContainer/Next.visible=false
 
 
 func gameOver():
@@ -25,37 +27,49 @@ func gameOver():
 	if(GameManager.unlockedLevel<GameManager.level+1):
 		GameManager.unlockedLevel=GameManager.level+1
 	var visibleStars:=0
-	
-	await get_tree().create_timer(.8).timeout
 	if(score>=level.minScore):
 		visibleStars+=1
-		$Stars/Star/Show.play("show")
-	await get_tree().create_timer(.4).timeout
 	if(score>=level.medScore):
 		visibleStars+=1
-		$Stars/Star2/Show.play("show")
-	await get_tree().create_timer(.4).timeout
 	if(score>=level.maxScore):
 		visibleStars+=1
-		$Stars/Star3/Show.play("show")
 	if(visibleStars>GameManager.stars[GameManager.level]):
 		GameManager.stars[GameManager.level]=visibleStars
 	var save = SaveData.new()
 	save.stars=GameManager.stars
 	save.unlockedLevel=GameManager.unlockedLevel
 	save.writeSave()
+	await get_tree().create_timer(.8).timeout
+	if(visibleStars>=1):
+		$Stars/Star/Show.play("show")
+	await get_tree().create_timer(.4).timeout
+	if(visibleStars>=2):
+		$Stars/Star2/Show.play("show")
+	await get_tree().create_timer(.4).timeout
+	if(visibleStars>=3):
+		$Stars/Star3/Show.play("show")
 		
 	
 
 
 func _on_restart_pressed() -> void:
-	GameManager.placed=false
+	GameManager.placed=0
 	get_tree().paused=false
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level" + str(GameManager.level+1) + ".tscn")
 
 
 func _on_menu_pressed() -> void:
 	Music.menu()
-	GameManager.placed=false
+	GameManager.placed=0
 	get_tree().paused=false
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
+
+func _on_next_pressed() -> void:
+	GameManager.placed=0
+	get_tree().paused=false
+	GameManager.level+=1
+	if(GameManager.level<=len(GameManager.stars)-1):
+		get_tree().change_scene_to_file("res://Scenes/Levels/Level" + str(GameManager.level+1) + ".tscn")
+	else:
+		GameManager.level-=1

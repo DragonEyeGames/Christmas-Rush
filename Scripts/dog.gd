@@ -28,6 +28,7 @@ func _ready() -> void:
 	sprite=$Sprite
 	leftPos=$Left.global_position.x
 	rightPos=$Right.global_position.x
+	visible=false
 
 func _process(delta: float) -> void:
 	if(chasing and GameManager.player.concealed):

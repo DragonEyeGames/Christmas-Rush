@@ -299,15 +299,14 @@ color = Color(0.42666334, 0.2697087, 0.13543335, 1)
 color = Color(0.29954746, 0.29954746, 0.29954743, 1)
 
 [node name="Jeremy" parent="." instance=ExtResource("3_h2yge")]
-visible = false
-position = Vector2(285, 71)
+position = Vector2(-115, 65)
 scale = Vector2(0.39, 0.39)
 
 [node name="Left" type="Marker2D" parent="Jeremy"]
-position = Vector2(-1020.5128, -10.256411)
+position = Vector2(-112.820496, 17.948719)
 
 [node name="Right" type="Marker2D" parent="Jeremy"]
-position = Vector2(541.0257, -12.820513)
+position = Vector2(1379.4873, 17.948719)
 
 [node name="Wall" type="TileMapLayer" parent="."]
 z_index = 1
@@ -330,7 +329,7 @@ tile_map_data = PackedByteArray("AAD1/wIAAAABAAYAAAAIAAAAAAABAAYAAAAIAAEAAAABAAY
 tile_set = SubResource("TileSet_272bh")
 
 [node name="Door" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(172, 49)
+position = Vector2(203, 49)
 
 [node name="Tree" parent="." instance=ExtResource("6_7mycd")]
 position = Vector2(507, 49)

@@ -24,7 +24,7 @@ offset_bottom = 47.0
 color = Color(0.61960787, 0.15686275, 0.06666667, 1)
 
 [node name="Bricks2" type="ColorRect" parent="."]
-z_index = 1
+z_index = 3
 offset_left = -32.0
 offset_top = -91.0
 offset_right = 32.0

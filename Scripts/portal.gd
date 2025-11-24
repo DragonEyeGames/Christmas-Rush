@@ -3,6 +3,8 @@ class_name Portal
 
 var playerEntered=false
 @export var linkedPortal: Portal
+@export var dog: Node2D
+@export var direction:=-1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,6 +15,11 @@ func _process(_delta: float) -> void:
 	if(playerEntered and Input.is_action_just_pressed("Interact")):
 		GameManager.camera.position_smoothing_enabled=false
 		GameManager.player.global_position=linkedPortal.global_position
+		if(dog!=null):
+			if(direction>0):
+				dog.global_position.x=dog.leftPos
+			if(direction<0):
+				dog.global_position.x=dog.rightPos
 		await get_tree().process_frame
 		await get_tree().process_frame
 		GameManager.camera.position_smoothing_enabled=true

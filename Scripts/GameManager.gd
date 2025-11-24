@@ -1,7 +1,7 @@
 extends Node
 
 var player: Player
-var placed:=false
+var placed:=0
 
 var overlay:CanvasLayer
 var level:=0

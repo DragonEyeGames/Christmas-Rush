@@ -13,12 +13,12 @@ func gameOver():
 	$Detections.text="Detections: " + str(level.encounters)
 
 func _on_restart_pressed() -> void:
-	GameManager.placed=false
+	GameManager.placed=0
 	get_tree().paused=false
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level" + str(GameManager.level+1) + ".tscn")
 
 func _on_menu_pressed() -> void:
 	Music.menu()
-	GameManager.placed=false
+	GameManager.placed=0
 	get_tree().paused=false
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

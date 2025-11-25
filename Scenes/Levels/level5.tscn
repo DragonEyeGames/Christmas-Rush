@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://drvs2n48i0pgv"]
+[gd_scene load_steps=18 format=4 uid="uid://drvs2n48i0pgv"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_rp22a"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_cow3m"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://it4kqys3qgrj" path="res://Scenes/portal.tscn" id="9_vsdsk"]
 [ext_resource type="PackedScene" uid="uid://b55fmyu7iqutl" path="res://Scenes/upgradedDog.tscn" id="10_6de43"]
 [ext_resource type="PackedScene" uid="uid://rsco884fdivv" path="res://Scenes/Levels/man.tscn" id="11_aba7e"]
+[ext_resource type="PackedScene" uid="uid://bpo8vc0qt1tau" path="res://Scenes/Levels/pause.tscn" id="11_cow3m"]
 [ext_resource type="PackedScene" uid="uid://dtaillvemg4s6" path="res://Scenes/Levels/main_camera.tscn" id="12_wpgnl"]
 [ext_resource type="PackedScene" uid="uid://bqsts48tscead" path="res://Scenes/door.tscn" id="13_vu4qo"]
 
@@ -359,6 +360,8 @@ position = Vector2(-277.50012, 29.999908)
 
 [node name="Right" type="Marker2D" parent="Terrance"]
 position = Vector2(682.5, 30.00007)
+
+[node name="Pause" parent="Terrance" instance=ExtResource("11_cow3m")]
 
 [node name="Phillip" parent="." node_paths=PackedStringArray("door", "caughtLayer") instance=ExtResource("11_aba7e")]
 z_index = 4

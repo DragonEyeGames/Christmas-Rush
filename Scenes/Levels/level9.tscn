@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dh6u8bymhgp42"]
+[gd_scene load_steps=18 format=4 uid="uid://dh6u8bymhgp42"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_mblgx"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_q43bc"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bqsts48tscead" path="res://Scenes/door.tscn" id="11_4hv6u"]
 [ext_resource type="PackedScene" uid="uid://b55fmyu7iqutl" path="res://Scenes/upgradedDog.tscn" id="12_fsoql"]
 [ext_resource type="PackedScene" uid="uid://rsco884fdivv" path="res://Scenes/Levels/man.tscn" id="13_jlbav"]
+[ext_resource type="PackedScene" uid="uid://bpo8vc0qt1tau" path="res://Scenes/Levels/pause.tscn" id="14_q43bc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_458el"]
 texture = ExtResource("3_j3ve6")
@@ -285,13 +286,13 @@ sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("panObject")]
 script = ExtResource("1_mblgx")
-minScore = 500
-medScore = 750
-maxScore = 1000
-parTime = 38.0
-minTime = 150.0
+minScore = 1000
+medScore = 1250
+maxScore = 1500
+parTime = 70.0
+minTime = 300.0
 parDetections = 0
-timeMultiplier = 1000.0
+timeMultiplier = 1500.0
 christmasTrees = 5
 panObject = [NodePath("Tree"), NodePath("Tree2"), NodePath("Tree3"), NodePath("Tree4"), NodePath("Tree5"), NodePath("Penopher")]
 
@@ -323,7 +324,7 @@ tile_set = SubResource("TileSet_272bh")
 [node name="Furniture" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAD3/wIAAQABAAEAAAAgAAgAAQAGAAYAAAAgAAkAAQAGAAcAAAAgAAoAAQAGAAgAAAAgAAsAAQAGAAkAAAAhAAgAAQAHAAYAAAAhAAkAAQAHAAcAAAAhAAoAAQAHAAgAAAAhAAsAAQAHAAkAAAAiAAgAAQAIAAYAAAAiAAkAAQAIAAcAAAAiAAoAAQAIAAgAAAAiAAsAAQAIAAkAAAAnAAoAAQAJAAcAAAAnAAsAAQAJAAgAAAAkAAoAAQAIAAoAAAAkAAsAAQAIAAsAAAAlAAoAAQAJAAoAAAAlAAsAAQAJAAsAAAAfAAsAAQAJAAYAAAAtAPn/AQAHAAQAAAAuAPn/AQAIAAUAAAAvAPn/AQAJAAUAAAAwAPn/AQAJAAQAAAAuAPj/AQAHAAUAAAAyAPf/AQAIAAEAAAAyAPj/AQAIAAIAAAAyAPn/AQAIAAMAAAAzAPf/AQAJAAEAAAAzAPj/AQAJAAIAAAAzAPn/AQAJAAMAAAA1APf/AQAGAAQAAAAFAA4AAQADAAMAAAAFAA8AAQADAAQAAAAGAA4AAQAEAAMAAAAGAA8AAQAEAAQAAAADAA4AAQACAAMAAAADAA8AAQACAAQAAAAEAA4AAQADAAMAAAAEAA8AAQADAAQAAAD7/w0AAQAGAAIAAAD7/w4AAQAGAAMAAAD8/w0AAQAHAAIAAAD8/w4AAQAHAAMAAAAIAA0AAQAGAAQAAAD+/w0AAQAAAAQAAAD+/w4AAQAAAAUAAAD+/w8AAQAAAAYAAAD//w0AAQABAAQAAAD//w4AAQABAAUAAAD//w8AAQABAAYAAAABAA4AAQABAAMAAAABAA8AAQAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAD3/wIAAQABAAEAAAAgAAgAAQAGAAYAAAAgAAkAAQAGAAcAAAAgAAoAAQAGAAgAAAAgAAsAAQAGAAkAAAAhAAgAAQAHAAYAAAAhAAkAAQAHAAcAAAAhAAoAAQAHAAgAAAAhAAsAAQAHAAkAAAAiAAgAAQAIAAYAAAAiAAkAAQAIAAcAAAAiAAoAAQAIAAgAAAAiAAsAAQAIAAkAAAAnAAoAAQAJAAcAAAAnAAsAAQAJAAgAAAAkAAoAAQAIAAoAAAAkAAsAAQAIAAsAAAAlAAoAAQAJAAoAAAAlAAsAAQAJAAsAAAAfAAsAAQAJAAYAAAAtAPn/AQAHAAQAAAAuAPn/AQAIAAUAAAAvAPn/AQAJAAUAAAAwAPn/AQAJAAQAAAAuAPj/AQAHAAUAAAAyAPf/AQAIAAEAAAAyAPj/AQAIAAIAAAAyAPn/AQAIAAMAAAAzAPf/AQAJAAEAAAAzAPj/AQAJAAIAAAAzAPn/AQAJAAMAAAA1APf/AQAGAAQAAAAFAA4AAQADAAMAAAAFAA8AAQADAAQAAAAGAA4AAQAEAAMAAAAGAA8AAQAEAAQAAAADAA4AAQACAAMAAAADAA8AAQACAAQAAAAEAA4AAQADAAMAAAAEAA8AAQADAAQAAAD7/w0AAQAGAAIAAAD7/w4AAQAGAAMAAAD8/w0AAQAHAAIAAAD8/w4AAQAHAAMAAAAIAA0AAQAGAAQAAAD+/w0AAQAAAAQAAAD+/w4AAQAAAAUAAAD+/w8AAQAAAAYAAAD//w0AAQABAAQAAAD//w4AAQABAAUAAAD//w8AAQABAAYAAAABAA4AAQABAAMAAAABAA8AAQAAAAIAAAANAO7/AQAAAAcAAAANAO//AQAAAAgAAAANAPD/AQAAAAkAAAAOAO7/AQADAAcAAAAOAO//AQADAAgAAAAOAPD/AQADAAkAAAAPAO7/AQADAAcAAAAPAO//AQADAAgAAAAPAPD/AQADAAkAAAAQAO7/AQABAAcAAAAQAO//AQABAAgAAAAQAPD/AQABAAkAAAAjAO7/AQABAAcAAAAjAO//AQABAAgAAAAjAPD/AQABAAkAAAAfAO7/AQAAAAcAAAAfAO//AQAAAAgAAAAfAPD/AQAAAAkAAAAgAO7/AQADAAcAAAAgAO//AQADAAgAAAAgAPD/AQADAAkAAAAhAO7/AQADAAcAAAAhAO//AQADAAgAAAAhAPD/AQADAAkAAAAiAO7/AQADAAcAAAAiAO//AQADAAgAAAAiAPD/AQADAAkAAAAaAO//AQAGAAIAAAAaAPD/AQAGAAMAAAAbAO//AQAHAAIAAAAbAPD/AQAHAAMAAAAUAO//AQAGAAIAAAAUAPD/AQAGAAMAAAAVAO//AQAHAAIAAAAVAPD/AQAHAAMAAAALAO//AQAGAAQAAAAlAO//AQAGAAQAAAA=")
 tile_set = SubResource("TileSet_272bh")
 
 [node name="Back Wall" type="TileMapLayer" parent="."]
@@ -395,10 +396,10 @@ position = Vector2(-259, 465)
 linkedPortal = NodePath("../Portal")
 
 [node name="Tree3" parent="." instance=ExtResource("8_go7ri")]
-position = Vector2(298, -528)
+position = Vector2(282, -527)
 
 [node name="Tree4" parent="." instance=ExtResource("8_go7ri")]
-position = Vector2(1241, -527)
+position = Vector2(1276, -527)
 
 [node name="Portal6" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_cq8dh")]
 position = Vector2(759, -464)
@@ -414,3 +415,5 @@ position = Vector2(1861, -240)
 [node name="Portal8" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_cq8dh")]
 position = Vector2(1348, -239)
 linkedPortal = NodePath("../Portal4")
+
+[node name="Pause" parent="." instance=ExtResource("14_q43bc")]

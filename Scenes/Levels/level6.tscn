@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bstmr27gxtiww"]
+[gd_scene load_steps=17 format=4 uid="uid://bstmr27gxtiww"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_pkiue"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_0geih"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dtaillvemg4s6" path="res://Scenes/Levels/main_camera.tscn" id="10_afrqh"]
 [ext_resource type="PackedScene" uid="uid://bqsts48tscead" path="res://Scenes/door.tscn" id="11_bbgyq"]
 [ext_resource type="PackedScene" uid="uid://boa8fqmqappli" path="res://Scenes/dog.tscn" id="12_rmvx4"]
+[ext_resource type="PackedScene" uid="uid://bpo8vc0qt1tau" path="res://Scenes/Levels/pause.tscn" id="13_0geih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_458el"]
 texture = ExtResource("3_ecwhh")
@@ -374,3 +375,5 @@ position = Vector2(-824.99994, 12.499999)
 
 [node name="Right" type="Marker2D" parent="Dogriella"]
 position = Vector2(452.49997, -2.4999998)
+
+[node name="Pause" parent="." instance=ExtResource("13_0geih")]

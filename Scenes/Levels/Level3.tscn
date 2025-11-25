@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bhmebh7i0xeld"]
+[gd_scene load_steps=16 format=4 uid="uid://bhmebh7i0xeld"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_i6bqf"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_n80jh"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://1vnam3fl3ul2" path="res://Scenes/tree.tscn" id="9_w3eof"]
 [ext_resource type="PackedScene" uid="uid://dtaillvemg4s6" path="res://Scenes/Levels/main_camera.tscn" id="10_pyjyt"]
 [ext_resource type="PackedScene" uid="uid://bqsts48tscead" path="res://Scenes/door.tscn" id="11_n80jh"]
+[ext_resource type="PackedScene" uid="uid://bpo8vc0qt1tau" path="res://Scenes/Levels/pause.tscn" id="12_q21to"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_458el"]
 texture = ExtResource("4_nqbrd")
@@ -361,3 +362,5 @@ position = Vector2(513, 913)
 
 [node name="Door" parent="." instance=ExtResource("11_n80jh")]
 position = Vector2(233, 912)
+
+[node name="Pause" parent="." instance=ExtResource("12_q21to")]

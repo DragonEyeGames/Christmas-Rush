@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dy5msg1w0oxmm"]
+[gd_scene load_steps=15 format=4 uid="uid://dy5msg1w0oxmm"]
 
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_ynf5e"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://enwn4qao47bj" path="res://Scenes/fireplace.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://bubtqw6r8hr8o" path="res://Scenes/overlay.tscn" id="9_hptm8"]
 [ext_resource type="PackedScene" uid="uid://dtaillvemg4s6" path="res://Scenes/Levels/main_camera.tscn" id="10_f3nwb"]
+[ext_resource type="PackedScene" uid="uid://bpo8vc0qt1tau" path="res://Scenes/Levels/pause.tscn" id="11_pyd1a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_458el"]
 texture = ExtResource("5_lquwl")
@@ -342,3 +343,5 @@ position = Vector2(-202, 50)
 visible = false
 
 [node name="MainCamera" parent="." instance=ExtResource("10_f3nwb")]
+
+[node name="Pause" parent="." instance=ExtResource("11_pyd1a")]

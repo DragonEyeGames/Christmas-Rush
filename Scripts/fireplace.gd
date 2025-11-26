@@ -2,6 +2,7 @@ extends Node2D
 
 var collided=false
 var removing=false
+@export var tutorial=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -9,6 +10,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if(tutorial and GameManager.placed>=get_parent().christmasTrees):
+		$E.visible=true
+		$E/tutorial.play("press")
 	if(Input.is_action_just_pressed("Interact") and GameManager.placed>=get_parent().christmasTrees and collided and not removing):
 		removing=true
 		GameManager.player.canMove=false

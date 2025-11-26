@@ -321,9 +321,11 @@ tile_set = SubResource("TileSet_272bh")
 
 [node name="Tree" parent="." instance=ExtResource("7_xe7un")]
 position = Vector2(430, 49)
+tutorialTree = true
 
 [node name="Fireplace" parent="." instance=ExtResource("8_v3vqe")]
 position = Vector2(-202, 50)
+tutorial = true
 
 [node name="Overlay" parent="." instance=ExtResource("9_bvs0b")]
 visible = false

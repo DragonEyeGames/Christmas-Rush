@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbxuxwj0l75vv"]
+
+[ext_resource type="Texture2D" uid="uid://brh2mgmr523j8" path="res://Assets/buttons/keys.png" id="1_a78x1"]
+[ext_resource type="Texture2D" uid="uid://dpqe0agdbpad7" path="res://Assets/buttons/keys_pressed.png" id="2_bwp5o"]
+
+[sub_resource type="Animation" id="Animation_wnlik"]
+resource_name = "press"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("E:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_a78x1"), ExtResource("2_bwp5o")]
+}
+
+[sub_resource type="Animation" id="Animation_81a3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("E:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_a78x1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_obiyg"]
+_data = {
+&"RESET": SubResource("Animation_81a3x"),
+&"press": SubResource("Animation_wnlik")
+}
+
+[node name="E" type="Sprite2D"]
+visible = false
+scale = Vector2(1.42, 1.42)
+texture = ExtResource("1_a78x1")
+region_enabled = true
+region_rect = Rect2(86, 26, 12, 12)
+
+[node name="tutorial" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_obiyg")
+}
+speed_scale = 1.5

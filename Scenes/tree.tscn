@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://1vnam3fl3ul2"]
+[gd_scene load_steps=142 format=3 uid="uid://1vnam3fl3ul2"]
 
 [ext_resource type="Shader" uid="uid://i5hil2pkj6hi" path="res://Shaders/outline.gdshader" id="1_gvmkm"]
 [ext_resource type="Texture2D" uid="uid://bavprj3uby6vn" path="res://Assets/House/Christmas Tree Small Green - Spritesheet.png" id="2_d2g23"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://btenl5vpflu5" path="res://Scripts/tree.gd" id="3_d2g23"]
 [ext_resource type="Texture2D" uid="uid://cpxtjsqnhy0dg" path="res://Assets/Christmas icon pack/16x16/gift 1.png" id="5_ind6k"]
 [ext_resource type="Texture2D" uid="uid://dss1fiys5nhwx" path="res://Assets/Christmas icon pack/16x16/gift 2.png" id="6_6vbnm"]
+[ext_resource type="PackedScene" uid="uid://dbxuxwj0l75vv" path="res://Scenes/tutorialButton.tscn" id="7_jqx0n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("1_gvmkm")
@@ -973,7 +974,6 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_kek77")
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_2n44k")
-autoplay = "default"
 frame_progress = 0.69497484
 script = ExtResource("3_d2g23")
 
@@ -1009,6 +1009,9 @@ texture = ExtResource("5_ind6k")
 [node name="Gift1200_3" type="Sprite2D" parent="Gifts"]
 position = Vector2(8.888889, 37.333332)
 texture = ExtResource("6_6vbnm")
+
+[node name="E" parent="." instance=ExtResource("7_jqx0n")]
+position = Vector2(-1.7777777, -21.333334)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -7,8 +7,8 @@ var overlay:CanvasLayer
 var level:=0
 var levelNode:Level
 var camera:Camera2D
-var stars:=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-var unlockedLevel:=0
+var stars:=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+var unlockedLevel:=20
 var cameraFollow
 var playerNode
 

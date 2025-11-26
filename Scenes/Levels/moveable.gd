@@ -5,6 +5,8 @@ var colliding=false
 var dragging:=0
 var originalParent
 var unblock=null
+var left
+var right
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +34,20 @@ func _process(_delta: float) -> void:
 		GameManager.player.add_child(self)
 		global_position=globalPos
 		global_scale=globalScale
+		left=$StaticBody2D2/CollisionShape2D
+		var leftPos=left.global_position
+		var leftScale=left.global_scale
+		$StaticBody2D2.remove_child(left)
+		GameManager.player.add_child(left)
+		left.global_position=leftPos
+		left.global_scale=leftScale
+		right=$StaticBody2D2/CollisionShape2D2
+		var rightPos=right.global_position
+		var rightScale=right.global_scale
+		$StaticBody2D2.remove_child(right)
+		GameManager.player.add_child(right)
+		right.global_position=rightPos
+		right.global_scale=rightScale
 	elif(dragging!=0 and Input.is_action_just_pressed("Interact")):
 		var globalPos=global_position
 		var globalScale = global_scale
@@ -41,6 +57,18 @@ func _process(_delta: float) -> void:
 		global_scale=globalScale
 		GameManager.player.moving=0
 		dragging=0
+		var leftPos=left.global_position
+		var leftScale=left.global_scale
+		GameManager.player.remove_child(left)
+		$StaticBody2D2.add_child(left)
+		left.global_position=leftPos
+		left.global_scale=leftScale
+		var rightPos=right.global_position
+		var rightScale=right.global_scale
+		GameManager.player.remove_child(right)
+		$StaticBody2D2.add_child(right)
+		right.global_position=rightPos
+		right.global_scale=rightScale
 		await get_tree().process_frame
 		GameManager.player.canTeleport=true
 	if(dragging==0 and unblock!=null):

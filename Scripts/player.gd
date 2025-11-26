@@ -25,6 +25,7 @@ func _ready() -> void:
 	GameManager.playerNode=GameManager.cameraFollow
 
 func _physics_process(delta: float) -> void:
+	print(get_children())
 	# Add the gravity.
 	if not is_on_floor():
 		coyoteTimer+=delta

@@ -301,7 +301,7 @@ position = Vector2(-3, -19)
 scale = Vector2(5.29, 5.29)
 sprite_frames = SubResource("SpriteFrames_tx1dd")
 animation = &"pull"
-frame_progress = 0.103770226
+frame_progress = 0.18772297
 
 [connection signal="area_entered" from="PointLight2D/Area2D" to="." method="_light_entered"]
 [connection signal="area_exited" from="PointLight2D/Area2D" to="." method="_light_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c0ckxftn8x4jv"]
+[gd_scene load_steps=43 format=3 uid="uid://c0ckxftn8x4jv"]
 
 [ext_resource type="Script" uid="uid://db61jm0m4pad8" path="res://Scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://6aequcys5cl0" path="res://Assets/santa_sheets/idle_sheet.png" id="3_6t5aa"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://k0njl443wexf" path="res://Assets/santa_sheets/jump/jump_down_sheet.png" id="4_3smsa"]
 [ext_resource type="Texture2D" uid="uid://b825scgp1my4y" path="res://Assets/santa_sheets/jump/jump_up_sheet.png" id="5_8erm5"]
 [ext_resource type="Texture2D" uid="uid://davgd8exoinu6" path="res://Assets/santa_sheets/jump/jump_anticipation_sheet.png" id="6_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://k7qxaoj2o4qg" path="res://Assets/santa_sheets/pull_sheet.png" id="7_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://dqkk72a1hjnn4" path="res://Assets/santa_sheets/run_sheet.png" id="7_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://xvcj8k16bv8v" path="res://Assets/santa_sheets/push_sheet.png" id="8_tx1dd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
 radius = 67.0
@@ -70,6 +72,46 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
 atlas = ExtResource("6_f1ek2")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1odr"]
+atlas = ExtResource("7_f1ek2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
+atlas = ExtResource("7_f1ek2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
+atlas = ExtResource("7_f1ek2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
+atlas = ExtResource("7_f1ek2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83xs0"]
+atlas = ExtResource("7_f1ek2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypfnu"]
+atlas = ExtResource("8_tx1dd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuaoq"]
+atlas = ExtResource("8_tx1dd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wohnl"]
+atlas = ExtResource("8_tx1dd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36dho"]
+atlas = ExtResource("8_tx1dd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
+atlas = ExtResource("8_tx1dd")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
 atlas = ExtResource("7_tx1dd")
@@ -161,6 +203,46 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p1odr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gysh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfarp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6uwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83xs0")
+}],
+"loop": true,
+"name": &"pull",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypfnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuaoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wohnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36dho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh6i2")
+}],
+"loop": true,
+"name": &"push",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fs7ks")
 }, {
 "duration": 1.0,
@@ -218,8 +300,8 @@ texture_filter = 1
 position = Vector2(-3, -19)
 scale = Vector2(5.29, 5.29)
 sprite_frames = SubResource("SpriteFrames_tx1dd")
-animation = &"idle"
-frame_progress = 0.07883213
+animation = &"pull"
+frame_progress = 0.103770226
 
 [connection signal="area_entered" from="PointLight2D/Area2D" to="." method="_light_entered"]
 [connection signal="area_exited" from="PointLight2D/Area2D" to="." method="_light_exited"]

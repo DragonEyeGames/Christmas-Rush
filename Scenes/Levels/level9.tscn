@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dh6u8bymhgp42"]
+[gd_scene load_steps=23 format=4 uid="uid://dh6u8bymhgp42"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_mblgx"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_q43bc"]
@@ -284,6 +284,21 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_458el")
 sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q43bc"]
+polygon = PackedVector2Array(-328, -40, 137, -40, 360, -264, 952, -264, 1176, -40, 1608, -40, 1608, 95, 1608, 96, 1180, 96, 956, -128, 356, -128, 132, 96, -328, 96, -328, -39)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j3ve6"]
+polygon = PackedVector2Array(1272, -192, 1272, -328, 1928, -328, 1928, -192)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wthyv"]
+polygon = PackedVector2Array(184, -616, 1352, -616, 1352, -480, 960, -480, 900, -416, 636, -416, 573, -480, 184, -480)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nfixl"]
+polygon = PackedVector2Array(-328, 512, 392, 512, 392, 376, -328, 376)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u8nxk"]
+polygon = PackedVector2Array(824, 248, 824, 384, 1320, 384, 1320, 248)
+
 [node name="Main" type="Node2D" node_paths=PackedStringArray("panObject")]
 script = ExtResource("1_mblgx")
 minScore = 1000
@@ -367,10 +382,10 @@ door = NodePath("../Door")
 caughtLayer = NodePath("../Caught")
 
 [node name="Left" type="Marker2D" parent="Habernacl"]
-position = Vector2(-109, 11.000002)
+position = Vector2(-299, 35)
 
 [node name="Right" type="Marker2D" parent="Habernacl"]
-position = Vector2(413, 10)
+position = Vector2(295, 37)
 
 [node name="Portal" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_cq8dh")]
 position = Vector2(-9, 49)
@@ -417,3 +432,26 @@ position = Vector2(1348, -239)
 linkedPortal = NodePath("../Portal4")
 
 [node name="Pause" parent="." instance=ExtResource("14_q43bc")]
+
+[node name="LightOccluders" type="Node2D" parent="."]
+visible = false
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="LightOccluders"]
+self_modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_q43bc")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="LightOccluders"]
+self_modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_j3ve6")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="LightOccluders"]
+self_modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_wthyv")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="LightOccluders"]
+self_modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_nfixl")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="LightOccluders"]
+self_modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_u8nxk")

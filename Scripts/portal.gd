@@ -5,6 +5,7 @@ var playerEntered=false
 @export var linkedPortal: Portal
 @export var dog: Node2D
 @export var direction:=-1
+var blocked=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,7 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if(playerEntered and Input.is_action_just_pressed("Interact")):
+	if(playerEntered and Input.is_action_just_pressed("Interact") and not blocked):
 		GameManager.camera.position_smoothing_enabled=false
 		GameManager.player.global_position=linkedPortal.global_position
 		if(dog!=null):

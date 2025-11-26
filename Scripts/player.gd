@@ -6,6 +6,11 @@ const JUMP_VELOCITY = -300.0
 var coyoteTimer=0.0
 var coyoteTime=0.3
 
+var moving=0
+#0=standard
+#1=pushing
+#2=pulling
+
 var concealed=false
 var canMove=true
 var sprite
@@ -47,18 +52,31 @@ func _physics_process(delta: float) -> void:
 		velocity.y=0
 	move_and_slide()
 	lightVisibility()
-	if(abs(velocity.x)>1 and sprite.animation!="walk"):
-		sprite.play("walk")
-	if(velocity==Vector2.ZERO and sprite.animation!="idle"):
-		sprite.play("idle")
-	if(velocity.y<-1 and sprite.animation!="jumpRise"):
-		sprite.play("jumpRise")
-	if(velocity.y>1 and sprite.animation!="jumpFall"):
-		sprite.play("jumpFall")
+	if(moving==0):
+		if(abs(velocity.x)>1 and sprite.animation!="walk"):
+			sprite.play("walk")
+		if(velocity==Vector2.ZERO and sprite.animation!="idle"):
+			sprite.play("idle")
+		if(velocity.y<-1 and sprite.animation!="jumpRise"):
+			sprite.play("jumpRise")
+		if(velocity.y>1 and sprite.animation!="jumpFall"):
+			sprite.play("jumpFall")
 	if(velocity.x<0):
 		sprite.flip_h=true
 	elif(velocity.x>0):
 		sprite.flip_h=false
+	if(moving==1):
+		sprite.flip_h=false
+		if(velocity.x>0 and not sprite.animation=="push"):
+			sprite.play("push")
+		elif(velocity.x<0 and not sprite.animation=="pull"):
+			sprite.play("pull")
+	if(moving==-1):
+		sprite.flip_h=true
+		if(velocity.x<0 and not sprite.animation=="push"):
+			sprite.play("push")
+		elif(velocity.x>0 and not sprite.animation=="pull"):
+			sprite.play("pull")
 
 func lightVisibility():
 	for item in lightColliding:

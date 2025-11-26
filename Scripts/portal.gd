@@ -6,6 +6,7 @@ var playerEntered=false
 @export var dog: Node2D
 @export var direction:=-1
 var blocked=false
+@export var tutorial:=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,13 +30,17 @@ func _process(_delta: float) -> void:
 		await get_tree().process_frame
 		GameManager.camera.position_smoothing_enabled=true
 		
+		
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body is Player):
 		playerEntered=true
+		if(tutorial):
+			$ColorRect.visible=true
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if(body is Player):
 		playerEntered=false
+		$ColorRect.visible=false

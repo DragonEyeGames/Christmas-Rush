@@ -9,11 +9,15 @@ var unblock=null
 var left
 var right
 var previousPos=0
+@export var tutorial=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(door!=null):
 		door.blocked=true
 	previousPos=global_position.x
+	if(tutorial):
+		$Tutorial.visible=true
+		$Tutorial/E/tutorial.play("press")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,6 +72,8 @@ func _process(_delta: float) -> void:
 		GameManager.player.add_child(right)
 		right.global_position=rightPos
 		right.global_scale=rightScale
+		if(tutorial):
+			$Tutorial.visible=false
 	elif(dragging!=0 and Input.is_action_just_pressed("Interact")):
 		var globalPos=global_position
 		var globalScale = global_scale

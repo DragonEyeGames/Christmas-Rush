@@ -4,6 +4,7 @@ var colliding:=false
 var player
 var closed:=false
 var moving:=false
+@export var tutorial := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,6 +21,8 @@ func _input(event: InputEvent) -> void:
 		moving=true
 		await get_tree().create_timer(0.5).timeout
 		moving=false
+		if(tutorial):
+			$ColorRect.visible=false
 	elif(event.is_action_pressed("Interact") and closed and not moving):
 		$Controller.play("revealPlayer")
 		player.canMove=true
@@ -33,11 +36,16 @@ func _on_body_entered(body: Node2D) -> void:
 	if(body is Player):
 		player=body
 		colliding=true
+		if(tutorial):
+			$ColorRect.visible=true
+			$ColorRect/E/tutorial.play("press")
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if(body is Player):
 		colliding=false
+		if(tutorial):
+			$ColorRect.visible=false
 		
 func open():
 	$Controller.play("openNPC")

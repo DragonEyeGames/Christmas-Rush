@@ -336,6 +336,7 @@ visible = false
 [node name="Chair" parent="." node_paths=PackedStringArray("door") instance=ExtResource("10_vj8wu")]
 position = Vector2(179, 66)
 door = NodePath("../Portal")
+tutorial = true
 
 [node name="Portal" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_431iw")]
 position = Vector2(183, 49)

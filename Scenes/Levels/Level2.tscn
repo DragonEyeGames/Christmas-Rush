@@ -332,6 +332,7 @@ tile_set = SubResource("TileSet_272bh")
 
 [node name="Door" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(203, 49)
+tutorial = true
 
 [node name="Tree" parent="." instance=ExtResource("6_7mycd")]
 position = Vector2(507, 49)

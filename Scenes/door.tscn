@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqsts48tscead"]
+[gd_scene load_steps=10 format=3 uid="uid://bqsts48tscead"]
 
 [ext_resource type="Script" uid="uid://7rn1nyd8dlfl" path="res://Scripts/door.gd" id="1_ba8gm"]
 [ext_resource type="Texture2D" uid="uid://b8gq48cnjbjun" path="res://Assets/House/AssetsSheet_House.png" id="2_v6xrn"]
+[ext_resource type="PackedScene" uid="uid://dbxuxwj0l75vv" path="res://Scenes/tutorialButton.tscn" id="3_fahql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(17, 24)
@@ -85,6 +86,34 @@ tracks/2/keys = {
 "values": [0, 2]
 }
 
+[sub_resource type="Animation" id="Animation_p0e35"]
+resource_name = "openNPC"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Opened:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_ba8gm"]
 resource_name = "revealPlayer"
 length = 0.6
@@ -123,34 +152,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_p0e35"]
-resource_name = "openNPC"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Door:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Opened:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lquwl"]
@@ -198,6 +199,20 @@ position = Vector2(7.5, 1.5)
 texture = ExtResource("2_v6xrn")
 region_enabled = true
 region_rect = Rect2(42, 51, 5, 21)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -1
+offset_left = -7.575776
+offset_top = -11.580574
+offset_right = 9.424224
+offset_bottom = 12.419426
+
+[node name="E" parent="ColorRect" instance=ExtResource("3_fahql")]
+visible = true
+z_index = 3
+position = Vector2(8.650753, 7.671425)
+scale = Vector2(0.68, 0.68)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

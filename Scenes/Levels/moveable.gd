@@ -2,6 +2,7 @@ extends Node2D
 
 var colliding=false
 @export var door: Node2D
+@export var person: Human
 var dragging:=0
 var originalParent
 var unblock=null
@@ -21,10 +22,17 @@ func _process(_delta: float) -> void:
 	if(previousPos!=global_position.x):
 		if(not $Scrape.playing):
 			$Scrape.play()
+			if(person != null and not person.active):
+				await get_tree().create_timer(1).timeout
+				GameManager.player.canMove=false
+				GameManager.cameraFollow=person
+				await get_tree().create_timer(.7).timeout
+				person.activate()
+				await get_tree().create_timer(2).timeout
+				GameManager.cameraFollow=GameManager.playerNode
+				GameManager.player.canMove=true
 	else:
-		print("hereserser")
 		if($Scrape.playing):
-			print("STStosptospt")
 			$Scrape.stop()
 	previousPos=global_position.x
 	if(colliding and Input.is_action_just_pressed("Interact") and dragging==0):

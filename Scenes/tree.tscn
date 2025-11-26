@@ -973,6 +973,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_kek77")
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_2n44k")
+autoplay = "default"
 frame_progress = 0.69497484
 script = ExtResource("3_d2g23")
 

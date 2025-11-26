@@ -11,6 +11,7 @@ var startingX
 var active=false
 @export var door:Node2D
 @export var caughtLayer: CanvasLayer
+
 var patrolDirection:=1
 
 var colliding:=false

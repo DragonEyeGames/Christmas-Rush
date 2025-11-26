@@ -16,6 +16,8 @@ var canMove=true
 var sprite
 var lightColliding=[]
 
+var canTeleport=true
+
 func _ready() -> void:
 	GameManager.player=self
 	GameManager.cameraFollow=$Node2D
@@ -50,6 +52,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x=0
 	if(abs(velocity.y)<0.1):
 		velocity.y=0
+	if(moving!=0):
+		velocity.x/=3
+		if(velocity.y<0):
+			velocity.y=0
 	move_and_slide()
 	lightVisibility()
 	if(moving==0):
@@ -71,12 +77,16 @@ func _physics_process(delta: float) -> void:
 			sprite.play("push")
 		elif(velocity.x<0 and not sprite.animation=="pull"):
 			sprite.play("pull")
+		if(velocity.x==0 and sprite.animation!="idle"):
+			sprite.play("idle")
 	if(moving==-1):
 		sprite.flip_h=true
 		if(velocity.x<0 and not sprite.animation=="push"):
 			sprite.play("push")
 		elif(velocity.x>0 and not sprite.animation=="pull"):
 			sprite.play("pull")
+		if(velocity.x==0 and sprite.animation!="idle"):
+			sprite.play("idle")
 
 func lightVisibility():
 	for item in lightColliding:

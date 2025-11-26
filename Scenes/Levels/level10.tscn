@@ -337,8 +337,10 @@ visible = false
 position = Vector2(179, 66)
 door = NodePath("../Portal")
 
-[node name="Portal" parent="." instance=ExtResource("10_431iw")]
+[node name="Portal" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_431iw")]
 position = Vector2(183, 49)
+linkedPortal = NodePath("../Portal2")
 
-[node name="Portal2" parent="." instance=ExtResource("10_431iw")]
+[node name="Portal2" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_431iw")]
 position = Vector2(-209, 403)
+linkedPortal = NodePath("../Portal")

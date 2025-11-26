@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://it4kqys3qgrj"]
+[gd_scene load_steps=5 format=3 uid="uid://it4kqys3qgrj"]
 
 [ext_resource type="Script" uid="uid://dyi1m8goi0atx" path="res://Scripts/portal.gd" id="1_oi2tk"]
 [ext_resource type="Texture2D" uid="uid://b8gq48cnjbjun" path="res://Assets/House/AssetsSheet_House.png" id="2_dashy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(17, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi2tk"]
+size = Vector2(7.75, 14.75)
 
 [node name="Portal" type="Area2D"]
 scale = Vector2(4, 4)
@@ -22,6 +25,14 @@ position = Vector2(0.5, 0.5)
 texture = ExtResource("2_dashy")
 region_enabled = true
 region_rect = Rect2(56, 73, 15, 23)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.375, 4.625)
+shape = SubResource("RectangleShape2D_oi2tk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

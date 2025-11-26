@@ -7,14 +7,26 @@ var originalParent
 var unblock=null
 var left
 var right
-
+var previousPos=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	door.blocked=true
+	if(door!=null):
+		door.blocked=true
+	previousPos=global_position.x
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	print($Scrape.playing)
+	if(previousPos!=global_position.x):
+		if(not $Scrape.playing):
+			$Scrape.play()
+	else:
+		print("hereserser")
+		if($Scrape.playing):
+			print("STStosptospt")
+			$Scrape.stop()
+	previousPos=global_position.x
 	if(colliding and Input.is_action_just_pressed("Interact") and dragging==0):
 		GameManager.player.canTeleport=false
 		var tween = create_tween()
@@ -34,14 +46,15 @@ func _process(_delta: float) -> void:
 		GameManager.player.add_child(self)
 		global_position=globalPos
 		global_scale=globalScale
-		left=$StaticBody2D2/CollisionShape2D
+		print($StaticBody2D2.get_children())
+		left=$StaticBody2D2.get_child(0)
 		var leftPos=left.global_position
 		var leftScale=left.global_scale
 		$StaticBody2D2.remove_child(left)
 		GameManager.player.add_child(left)
 		left.global_position=leftPos
 		left.global_scale=leftScale
-		right=$StaticBody2D2/CollisionShape2D2
+		right=$StaticBody2D2.get_child(0)
 		var rightPos=right.global_position
 		var rightScale=right.global_scale
 		$StaticBody2D2.remove_child(right)

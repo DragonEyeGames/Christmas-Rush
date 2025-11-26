@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -300.0
 var coyoteTimer=0.0
 var coyoteTime=0.3
 
+var canJump=false
+
 var moving=0
 #0=standard
 #1=pushing
@@ -25,18 +27,19 @@ func _ready() -> void:
 	GameManager.playerNode=GameManager.cameraFollow
 
 func _physics_process(delta: float) -> void:
-	print(get_children())
 	# Add the gravity.
 	if not is_on_floor():
 		coyoteTimer+=delta
 		velocity += get_gravity() * delta
 	else:
 		coyoteTimer=0
+		canJump=true
 
 	if(canMove):
 		# Handle jump.
-		if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyoteTimer<coyoteTime):
+		if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyoteTimer<coyoteTime) and canJump:
 			velocity.y = JUMP_VELOCITY
+			canJump=false
 
 		var direction := Input.get_axis("Left", "Right")
 		if direction:

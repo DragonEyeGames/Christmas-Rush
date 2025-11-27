@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://crj1j4kqq6n1l"]
+[gd_scene load_steps=19 format=4 uid="uid://crj1j4kqq6n1l"]
 
 [ext_resource type="Script" uid="uid://0w48apjldfbw" path="res://Scripts/Level.gd" id="1_mrgfn"]
 [ext_resource type="PackedScene" uid="uid://c0ckxftn8x4jv" path="res://Scenes/player.tscn" id="2_ob3ge"]
@@ -283,6 +283,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_458el")
 sources/1 = SubResource("TileSetAtlasSource_ok1eh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3w6v"]
+size = Vector2(142.65884, 1)
+
 [node name="Main" type="Node2D" node_paths=PackedStringArray("panObject")]
 script = ExtResource("1_mrgfn")
 parTime = 9.0
@@ -343,10 +346,11 @@ visible = false
 
 [node name="Pause" parent="." instance=ExtResource("9_tde5y")]
 
-[node name="Chair" parent="." node_paths=PackedStringArray("door", "person") instance=ExtResource("10_flc4t")]
+[node name="Chair" parent="." node_paths=PackedStringArray("door", "person", "blockingWall") instance=ExtResource("10_flc4t")]
 position = Vector2(179, 66)
 door = NodePath("../Portal")
 person = NodePath("../Glonzo")
+blockingWall = NodePath("../StaticBody2D/CollisionShape2D")
 
 [node name="Portal" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("11_i4enr")]
 position = Vector2(183, 49)
@@ -372,3 +376,13 @@ position = Vector2(-184, 26)
 position = Vector2(236, 25)
 
 [node name="Caught" parent="." instance=ExtResource("14_v2rp0")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(463.5, 27.670591)
+rotation = -1.5707964
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_a3w6v")
+disabled = true
+one_way_collision = true

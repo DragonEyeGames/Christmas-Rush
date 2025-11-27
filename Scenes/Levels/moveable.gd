@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 var colliding=false
 @export var door: Node2D
@@ -9,7 +9,9 @@ var unblock=null
 var left
 var right
 var previousPos=0
+var pickingUp=false
 @export var tutorial=false
+@export var blockingWall: CollisionShape2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(door!=null):
@@ -19,7 +21,9 @@ func _ready() -> void:
 		$Tutorial.visible=true
 		$Tutorial/E/tutorial.play("press")
 
-
+func _physics_process(_delta: float) -> void:
+	velocity+=get_gravity()
+	move_and_slide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if(previousPos!=global_position.x):
@@ -39,6 +43,9 @@ func _process(_delta: float) -> void:
 			$Scrape.stop()
 	previousPos=global_position.x
 	if(colliding and Input.is_action_just_pressed("Interact") and dragging==0):
+		pickingUp=true
+		if(blockingWall!=null):
+			blockingWall.disabled=false
 		GameManager.player.canTeleport=false
 		var tween = create_tween()
 		var direction=1
@@ -53,6 +60,8 @@ func _process(_delta: float) -> void:
 		var globalPos=global_position
 		var globalScale=global_scale
 		originalParent=get_parent()
+		while(not GameManager.player.is_on_floor()):
+			await get_tree().process_frame
 		get_parent().remove_child(self)
 		GameManager.player.add_child(self)
 		global_position=globalPos
@@ -74,7 +83,14 @@ func _process(_delta: float) -> void:
 		right.global_scale=rightScale
 		if(tutorial):
 			$Tutorial.visible=false
-	elif(dragging!=0 and Input.is_action_just_pressed("Interact")):
+		$StaticBody2D/CollisionShape2D.disabled=true
+		$StaticBody2D/CollisionShape2D2.disabled=true
+		pickingUp=false
+	elif(dragging!=0 and Input.is_action_just_pressed("Interact") and not pickingUp):
+		$StaticBody2D/CollisionShape2D.disabled=false
+		$StaticBody2D/CollisionShape2D2.disabled=false
+		if(blockingWall!=null):
+			blockingWall.disabled=true
 		var globalPos=global_position
 		var globalScale = global_scale
 		GameManager.player.remove_child(self)

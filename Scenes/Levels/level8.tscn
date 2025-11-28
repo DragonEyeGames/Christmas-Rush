@@ -385,17 +385,21 @@ position = Vector2(-109, 11.000002)
 [node name="Right" type="Marker2D" parent="Jacquies"]
 position = Vector2(413, 10)
 
-[node name="Portal3" parent="." node_paths=PackedStringArray("linkedPortal", "dog") instance=ExtResource("10_pauqr")]
+[node name="Portal3" parent="." node_paths=PackedStringArray("linkedPortal", "toMove") instance=ExtResource("10_pauqr")]
 position = Vector2(-328, 433)
 linkedPortal = NodePath("../Portal")
-dog = NodePath("../Smorgul")
-direction = 1
+toMove = NodePath("../Smorgul")
 
-[node name="Portal4" parent="." node_paths=PackedStringArray("linkedPortal", "dog") instance=ExtResource("10_pauqr")]
+[node name="Point" type="Marker2D" parent="Portal3"]
+position = Vector2(126.25, -91.75)
+
+[node name="Portal4" parent="." node_paths=PackedStringArray("linkedPortal", "toMove") instance=ExtResource("10_pauqr")]
 position = Vector2(-292, -336)
 linkedPortal = NodePath("../Portal2")
-dog = NodePath("../Smorgul")
-direction = 1
+toMove = NodePath("../Smorgul")
+
+[node name="Point" type="Marker2D" parent="Portal4"]
+position = Vector2(222, 99.75)
 
 [node name="Portal5" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_pauqr")]
 position = Vector2(191, -336)

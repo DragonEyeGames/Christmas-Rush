@@ -343,10 +343,13 @@ visible = false
 [node name="Tree" parent="." instance=ExtResource("8_vdeak")]
 position = Vector2(1752, 241)
 
-[node name="Portal4" parent="." node_paths=PackedStringArray("linkedPortal", "dog") instance=ExtResource("9_5n65o")]
+[node name="Portal4" parent="." node_paths=PackedStringArray("linkedPortal", "toMove") instance=ExtResource("9_5n65o")]
 position = Vector2(174, 48)
 linkedPortal = NodePath("../Portal")
-dog = NodePath("../Dogriella")
+toMove = NodePath("../Dogriella")
+
+[node name="Point" type="Marker2D" parent="Portal4"]
+position = Vector2(-10, 117.75)
 
 [node name="MainCamera" parent="." instance=ExtResource("10_afrqh")]
 
@@ -358,11 +361,14 @@ linkedPortal = NodePath("../Portal4")
 position = Vector2(-448, 496)
 linkedPortal = NodePath("../Portal3")
 
-[node name="Portal3" parent="." node_paths=PackedStringArray("linkedPortal", "dog") instance=ExtResource("9_5n65o")]
+[node name="Portal3" parent="." node_paths=PackedStringArray("linkedPortal", "toMove") instance=ExtResource("9_5n65o")]
 position = Vector2(973, 528)
 linkedPortal = NodePath("../Portal2")
-dog = NodePath("../Dogriella")
+toMove = NodePath("../Dogriella")
 direction = 1
+
+[node name="Point" type="Marker2D" parent="Portal3"]
+position = Vector2(-337.75, -1.75)
 
 [node name="Door" parent="." instance=ExtResource("11_bbgyq")]
 position = Vector2(-227, 496)

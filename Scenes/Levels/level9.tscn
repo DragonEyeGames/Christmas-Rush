@@ -304,7 +304,7 @@ script = ExtResource("1_mblgx")
 minScore = 1000
 medScore = 1250
 maxScore = 1500
-parTime = 70.0
+parTime = 65.0
 minTime = 300.0
 parDetections = 0
 timeMultiplier = 1500.0
@@ -373,7 +373,7 @@ human = NodePath("../Habernacl")
 position = Vector2(-127.50018, -9.999998)
 
 [node name="Right" type="Marker2D" parent="Penopher"]
-position = Vector2(2147.4998, 9.536743e-07)
+position = Vector2(3889.9995, -37.499996)
 
 [node name="Habernacl" parent="." node_paths=PackedStringArray("door", "caughtLayer") instance=ExtResource("13_jlbav")]
 z_index = 1
@@ -406,9 +406,14 @@ linkedPortal = NodePath("../Portal8")
 [node name="Door" parent="." instance=ExtResource("11_4hv6u")]
 position = Vector2(655, -176)
 
-[node name="Portal5" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_cq8dh")]
+[node name="Portal5" parent="." node_paths=PackedStringArray("linkedPortal", "toMove") instance=ExtResource("10_cq8dh")]
 position = Vector2(-259, 465)
 linkedPortal = NodePath("../Portal")
+toMove = NodePath("../Penopher")
+direction = 1
+
+[node name="Point" type="Marker2D" parent="Portal5"]
+position = Vector2(88, -101.75)
 
 [node name="Tree3" parent="." instance=ExtResource("8_go7ri")]
 position = Vector2(282, -527)
@@ -416,20 +421,33 @@ position = Vector2(282, -527)
 [node name="Tree4" parent="." instance=ExtResource("8_go7ri")]
 position = Vector2(1276, -527)
 
-[node name="Portal6" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_cq8dh")]
+[node name="Portal6" parent="." node_paths=PackedStringArray("linkedPortal", "toMove") instance=ExtResource("10_cq8dh")]
 position = Vector2(759, -464)
 linkedPortal = NodePath("../Portal2")
+toMove = NodePath("../Penopher")
+direction = 1
 
-[node name="Portal7" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_cq8dh")]
+[node name="Point" type="Marker2D" parent="Portal6"]
+position = Vector2(-55.75, 73)
+
+[node name="Portal7" parent="." node_paths=PackedStringArray("linkedPortal", "toMove") instance=ExtResource("10_cq8dh")]
 position = Vector2(907, 336)
 linkedPortal = NodePath("../Portal3")
+toMove = NodePath("../Penopher")
+
+[node name="Point" type="Marker2D" parent="Portal7"]
+position = Vector2(-30.25, -125)
 
 [node name="Tree5" parent="." instance=ExtResource("8_go7ri")]
 position = Vector2(1861, -240)
 
-[node name="Portal8" parent="." node_paths=PackedStringArray("linkedPortal") instance=ExtResource("10_cq8dh")]
+[node name="Portal8" parent="." node_paths=PackedStringArray("linkedPortal", "toMove") instance=ExtResource("10_cq8dh")]
 position = Vector2(1348, -239)
 linkedPortal = NodePath("../Portal4")
+toMove = NodePath("../Penopher")
+
+[node name="Point" type="Marker2D" parent="Portal8"]
+position = Vector2(-22.25, 73.75)
 
 [node name="Pause" parent="." instance=ExtResource("14_q43bc")]
 

@@ -311,6 +311,7 @@ tile_set = SubResource("TileSet_272bh")
 [node name="Furniture" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAD/////AQAGAAIAAAD//wAAAQAGAAMAAAAAAP//AQAHAAIAAAAAAAAAAQAHAAMAAAACAAEAAQABAAMAAAACAAIAAQABAAIAAAD2/wEAAQAAAAEAAAD2/wIAAQAAAAIAAAD9/wAAAQAFAAIAAAD9////AQAAAAEAAAAIAAAAAQAGAAIAAAAIAAEAAQAGAAMAAAAJAAAAAQAHAAIAAAAJAAEAAQAHAAMAAAA=")
 tile_set = SubResource("TileSet_272bh")
 
 [node name="Back Wall" type="TileMapLayer" parent="."]

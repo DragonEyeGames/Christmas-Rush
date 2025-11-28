@@ -288,7 +288,7 @@ size = Vector2(142.65884, 1)
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("panObject")]
 script = ExtResource("1_mrgfn")
-parTime = 9.0
+parTime = 26.0
 parDetections = 0
 timeMultiplier = 500.0
 panObject = [NodePath("Tree"), NodePath("Portal")]
@@ -380,7 +380,7 @@ position = Vector2(236, 25)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(463.5, 27.670591)
+position = Vector2(437, 26)
 rotation = -1.5707964
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_a3w6v")

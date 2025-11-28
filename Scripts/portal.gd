@@ -3,7 +3,7 @@ class_name Portal
 
 var playerEntered=false
 @export var linkedPortal: Portal
-@export var dog: Node2D
+@export var toMove: Node2D
 @export var direction:=-1
 var blocked=false
 @export var tutorial:=false
@@ -21,11 +21,11 @@ func _process(_delta: float) -> void:
 			return
 		GameManager.camera.position_smoothing_enabled=false
 		GameManager.player.global_position=linkedPortal.global_position
-		if(dog!=null):
-			if(direction>0):
-				dog.global_position.x=dog.leftPos
-			if(direction<0):
-				dog.global_position.x=dog.rightPos
+		if(toMove!=null):
+			toMove.global_position=$"Point".global_position
+			toMove.patrolDirection=direction
+			if(toMove is Human):
+				toMove.get_node("PointLight2D").scale.y = abs(toMove.get_node("PointLight2D").scale.y)*direction
 		await get_tree().process_frame
 		await get_tree().process_frame
 		GameManager.camera.position_smoothing_enabled=true

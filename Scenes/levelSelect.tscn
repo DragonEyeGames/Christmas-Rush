@@ -394,11 +394,12 @@ tile_set = SubResource("TileSet_kq7gl")
 
 [node name="LevelContainer" type="GridContainer" parent="."]
 layout_mode = 1
-offset_left = 366.0
-offset_top = 551.0
-offset_right = 1586.0
-offset_bottom = 1189.0
-columns = 6
+offset_left = 530.0
+offset_top = 463.0
+offset_right = 1750.0
+offset_bottom = 1101.0
+scale = Vector2(0.855, 0.855)
+columns = 5
 
 [node name="Level1" parent="LevelContainer" instance=ExtResource("5_rdqmn")]
 layout_mode = 2
@@ -446,6 +447,10 @@ level = 10
 [node name="Level12" parent="LevelContainer" instance=ExtResource("5_rdqmn")]
 layout_mode = 2
 level = 11
+
+[node name="Level13" parent="LevelContainer" instance=ExtResource("5_rdqmn")]
+layout_mode = 2
+level = 12
 
 [node name="resetButton" type="Button" parent="."]
 layout_mode = 0

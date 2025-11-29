@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://enwn4qao47bj"]
+[gd_scene load_steps=6 format=3 uid="uid://enwn4qao47bj"]
 
 [ext_resource type="Script" uid="uid://m6m2y4qbb8rs" path="res://Scripts/fireplace.gd" id="1_0dsgr"]
 [ext_resource type="PackedScene" uid="uid://dbxuxwj0l75vv" path="res://Scenes/tutorialButton.tscn" id="2_02jpa"]
+[ext_resource type="Texture2D" uid="uid://buvakx4e2vroi" path="res://Assets/FireplaceBottom.png" id="2_7lpbi"]
+[ext_resource type="Texture2D" uid="uid://bcx7sfsgu4m0w" path="res://Assets/FireplaceTop.png" id="3_y2myb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3f88f"]
 radius = 44.0
@@ -17,27 +19,18 @@ offset_top = -91.0
 offset_right = 34.0
 offset_bottom = 47.0
 
-[node name="Bricks" type="ColorRect" parent="."]
-offset_left = -32.0
-offset_top = -91.0
-offset_right = 32.0
-offset_bottom = 47.0
-color = Color(0.61960787, 0.15686275, 0.06666667, 1)
+[node name="Bricks" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -22)
+scale = Vector2(4, 4)
+texture = ExtResource("2_7lpbi")
 
-[node name="Bricks2" type="ColorRect" parent="."]
+[node name="Bricks2" type="Sprite2D" parent="."]
 z_index = 3
-offset_left = -32.0
-offset_top = -91.0
-offset_right = 32.0
-offset_bottom = -33.0
-color = Color(0.61960787, 0.15686275, 0.06666667, 1)
-
-[node name="Hole" type="ColorRect" parent="."]
-offset_left = -28.0
-offset_top = -33.0
-offset_right = 28.0
-offset_bottom = 35.0
-color = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(0, -22)
+scale = Vector2(4, 4)
+texture = ExtResource("3_y2myb")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -49,7 +42,6 @@ shape = SubResource("CapsuleShape2D_3f88f")
 
 [node name="E" parent="." instance=ExtResource("2_02jpa")]
 z_index = 3
-texture_filter = 1
 position = Vector2(0, -60)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

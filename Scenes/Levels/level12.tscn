@@ -291,6 +291,7 @@ script = ExtResource("1_mrgfn")
 parTime = 26.0
 parDetections = 0
 timeMultiplier = 500.0
+christmasTrees = 2
 panObject = [NodePath("Tree"), NodePath("Portal")]
 
 [node name="player" parent="." instance=ExtResource("2_ob3ge")]

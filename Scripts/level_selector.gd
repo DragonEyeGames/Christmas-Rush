@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	Music.main()
-	var levelToChange:="res://Scenes/Levels/Level" + str(level+1) + ".tscn"
+	var levelToChange:="res://Scenes/Levels/level" + str(level+1) + ".tscn"
 	GameManager.level=level
 	get_tree().change_scene_to_file(levelToChange)
 

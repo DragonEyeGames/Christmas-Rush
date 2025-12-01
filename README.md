@@ -1,4 +1,4 @@
-Very fun christmas game made for moonshot hackathon!
+Very fun christmas game made for moonshot hackathon! There are 15 levels that you can play through! Try to collect all the stars!
 
 <div align="center">
   <a href="https://moonshot.hackclub.com" target="_blank">

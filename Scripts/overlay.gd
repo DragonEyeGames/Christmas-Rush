@@ -23,6 +23,8 @@ func gameOver():
 	var detectionSubtraction=min(0, level.encounters-1)*100
 	score+=int((1.0-timeBonus)*level.timeMultiplier)
 	score-=detectionSubtraction
+	if(score<0):
+		score=0
 	$Score.text="Score: " + str(score)
 	if(GameManager.unlockedLevel<GameManager.level+1):
 		GameManager.unlockedLevel=GameManager.level+1

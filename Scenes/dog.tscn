@@ -97,6 +97,7 @@ animations = [{
 z_index = 3
 scale = Vector2(0.4, 0.4)
 collision_layer = 0
+floor_max_angle = 1.3962634
 script = ExtResource("1_ngebd")
 scaleDifference = 0.39
 speedDifference = 0.5

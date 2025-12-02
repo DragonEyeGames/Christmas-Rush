@@ -293,6 +293,7 @@ parTime = 35.0
 minTime = 100.0
 parDetections = 0
 timeMultiplier = 500.0
+christmasTrees = 3
 panObject = [NodePath("Tree"), NodePath("Tree3"), NodePath("Tree4"), NodePath("Chair")]
 
 [node name="player" parent="." instance=ExtResource("2_vnh51")]
